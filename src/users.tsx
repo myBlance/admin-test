@@ -11,6 +11,8 @@ import {
     SelectInput,
     SimpleForm,
     required,
+    DateField,
+    DateTimeInput,
 } from "react-admin";
 import MyUrlField from './MyUrlField';
 
@@ -30,7 +32,7 @@ export const UserList = () => {
                     secondaryText={(record) => record.username}
                     tertiaryText={(record) => record.email}
                 />
-            ) : (
+                ) : (
                 <Datagrid>
                     <TextField source="id" />
                     <TextField source="name" />
@@ -39,8 +41,10 @@ export const UserList = () => {
                     <TextField source="address.street" />
                     <MyUrlField source="website" />
                     <TextField source="company.name" />
+                    <DateField source="date"/>
                 </Datagrid>
-            )}
+                )
+            }
         </List>
     );
 };
@@ -56,7 +60,7 @@ export const UserEdit = () => (
             <TextInput source="email" />
             <TextInput source="address.street" />
             <TextInput source="website" />
-           
+            <DateTimeInput readOnly source="date" defaultValue={new Date().toISOString()} />
         </SimpleForm>  
     </Edit>
 );

@@ -12,7 +12,7 @@ import { authProvider } from './authProvider';
 
 export const App = () => (
   <Admin authProvider={authProvider} layout={Layout} dataProvider={dataProvider} dashboard={Dashboard} >
-      <Resource 
+      <Resource
         name="posts" 
         list={PostList} 
         edit={PostEdit} 
