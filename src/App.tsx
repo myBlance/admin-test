@@ -1,11 +1,10 @@
-import { Admin, Resource, ShowContext, ShowGuesser } from "react-admin";
+import { Admin, Resource} from "react-admin";
 import { Layout } from "./Layout";
 import { dataProvider } from "./dataProvider";
-import { UserList } from "./users";
+import { UserEdit, UserList } from "./users";
 import { PostList, PostEdit, PostCreate } from "./posts";
 import PostIcon from "@mui/icons-material/Book";
 import UserIcon from "@mui/icons-material/Group";
-
 import { Dashboard } from './Dashboard';
 import { authProvider } from './authProvider';
 
@@ -23,7 +22,7 @@ export const App = () => (
       <Resource
         name="users" 
         list={UserList} 
-        show={ShowGuesser} 
+        edit={UserEdit}  
         icon={UserIcon}
       />
   </Admin>

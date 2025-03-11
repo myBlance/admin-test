@@ -3,7 +3,6 @@ import {
     Datagrid,
     TextField,
     ReferenceField,
-    EditButton,
     Edit,
     Create,
     SimpleForm,
@@ -34,7 +33,6 @@ export const PostEdit = () => (
         <SimpleForm>
             <TextInput source="id" />
             <ReferenceInput source="userId" reference="users"  link="show" />
-            
             <TextInput source="title" />
             <TextInput source="body" multiline rows={5} />
         </SimpleForm>
