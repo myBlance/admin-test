@@ -1,4 +1,5 @@
 import { useMediaQuery, Theme } from "@mui/material";
+
 import { 
     List, 
     SimpleList, 
@@ -8,18 +9,21 @@ import {
     Edit,
     TextInput, 
     ReferenceInput,
-    SelectInput,
     SimpleForm,
-    required,
     DateField,
     DateTimeInput,
+    
 } from "react-admin";
+import { 
+    Box,
+} from "@mui/material";
 import MyUrlField from './MyUrlField';
 
 const userFilters = [
     <TextInput source="q" label="Search" alwaysOn />,
-    <ReferenceInput source="userId" label="User" reference="users" />,
-    <ReferenceInput source="companyId" label="Company" reference="companies"/>,
+    <ReferenceInput source="user" label="User" reference="users" />,
+    <ReferenceInput source="company.name" label="Company" reference="companies" />,
+    <ReferenceInput source="address.street" label="Address street" reference="street" />,
 ];
 
 export const UserList = () => {
@@ -36,6 +40,7 @@ export const UserList = () => {
                 <Datagrid>
                     <TextField source="id" />
                     <TextField source="name" />
+                    <TextField source="username" />
                     <EmailField source="email" />
                     <TextField source="phone" />
                     <TextField source="address.street" />
@@ -49,18 +54,28 @@ export const UserList = () => {
     );
 };
 
+const Aside = () =>(
+    <Box sx={{ width: '300px', margin: '1em' }}>
+        <List>
+            <Datagrid>
+                <TextField source="id" />
+                <TextField source="username" />
+            </Datagrid>
+        </List>
+    </Box>
+)
+
 export const UserEdit = () => (
-    <Edit>
+    <Edit aside ={<Aside/>}>
         <SimpleForm>
-            <TextInput readOnly source="id" />
-            <ReferenceInput label="User" source="userId" reference="users">
-                <SelectInput optionText="name" validate={[required()]} />
-            </ReferenceInput>
+            <TextInput readOnly source="id" sx={{width: 200}}/>
+            <TextInput source="name"/>
+            <TextInput source="username"/>
             <TextInput source="company.name" />
-            <TextInput source="email" />
+            <TextInput source="email" placeholder="Nhập email của bạn..." defaultValue="example@gmail.com" />
             <TextInput source="address.street" />
             <TextInput source="website" />
-            <DateTimeInput readOnly source="date" defaultValue={new Date().toISOString()} />
+            <DateTimeInput readOnly sx={{width: 200}} source="date" defaultValue={new Date().toISOString()} />
         </SimpleForm>  
     </Edit>
 );
