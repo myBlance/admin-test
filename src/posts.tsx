@@ -14,17 +14,18 @@ import {
     TopToolbar,
     SimpleList,
     NumberInput,
+    
 } from "react-admin";
 import { 
     Box,
     useMediaQuery, 
-    Theme
+    Theme,
+    CardHeader,
 } from "@mui/material";
 
 const postFilters = [
     <TextInput source="q" label="Search" alwaysOn />,
     <ReferenceInput source="userId" label="User" reference="users" />,
-    
 ];
 
 const EditActions = () => (
@@ -71,8 +72,9 @@ export const PostList = () => {
 export const PostEdit = () => (
     <Edit aside={<Aside />}>
         <SimpleForm>
+            <CardHeader title="Welcome to post page" />
             <NumberInput readOnly source="id" />
-            <ReferenceInput source="userId" reference="users"  />
+            <ReferenceInput source="user" reference="users" link="show" />
             <TextInput source="title" />
             <TextInput source="body" multiline rows={5} />
             <DateTimeInput readOnly source="date" defaultValue={new Date().toISOString()} />

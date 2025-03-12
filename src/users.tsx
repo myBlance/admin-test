@@ -1,5 +1,3 @@
-import { useMediaQuery, Theme } from "@mui/material";
-
 import { 
     List, 
     SimpleList, 
@@ -12,16 +10,19 @@ import {
     SimpleForm,
     DateField,
     DateTimeInput,
-    
 } from "react-admin";
 import { 
+    useMediaQuery,
+    Theme,
     Box,
+    CardHeader,
 } from "@mui/material";
 import MyUrlField from './MyUrlField';
 
 const userFilters = [
     <TextInput source="q" label="Search" alwaysOn />,
     <ReferenceInput source="user" label="User" reference="users" />,
+    <ReferenceInput source="phone" label="Phone" reference="phones" />,
     <ReferenceInput source="company.name" label="Company" reference="companies" />,
     <ReferenceInput source="address.street" label="Address street" reference="street" />,
 ];
@@ -68,6 +69,7 @@ const Aside = () =>(
 export const UserEdit = () => (
     <Edit aside ={<Aside/>}>
         <SimpleForm>
+            <CardHeader title="Welcome to user page" />
             <TextInput readOnly source="id" sx={{width: 200}}/>
             <TextInput source="name"/>
             <TextInput source="username"/>
