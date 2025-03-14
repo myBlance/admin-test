@@ -22,9 +22,8 @@ export const PhotoList = () => (
 )
 
 export const ShowGuesser =() =>(
-    <Show sx={{mr:30}}>
+    <Show sx={{mr:50}}>
         <SimpleShowLayout>
-            
             <ImageField 
                 source="url" title=""
                 sx={{'& img': { maxWidth: 100, maxHeight: 100 } }}

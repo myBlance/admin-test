@@ -14,7 +14,6 @@ import {
     TopToolbar,
     SimpleList,
     NumberInput,
-    
 } from "react-admin";
 import { 
     Box,
@@ -28,7 +27,7 @@ const postFilters = [
     <ReferenceInput source="userId" label="User" reference="users" />,
 ];
 
-const EditActions = () => (
+const ShowActions = () => (
     <TopToolbar>
         <ShowButton />
     </TopToolbar>
@@ -61,7 +60,7 @@ export const PostList = () => {
                     <TextField source="title" />
                     <TextField source="body" />
                     <DateField source="date"/>
-                    <EditActions />
+                    <ShowActions />
                 </Datagrid>
                 )
             }
@@ -69,10 +68,12 @@ export const PostList = () => {
     );
 };
 
+
+
 export const PostEdit = () => (
     <Edit aside={<Aside />}>
         <SimpleForm>
-            <CardHeader title="Welcome to post page" />
+            <CardHeader title="Post Edit" />
             <NumberInput readOnly source="id" />
             <ReferenceInput source="user" reference="users" link="show" />
             <TextInput source="title" />

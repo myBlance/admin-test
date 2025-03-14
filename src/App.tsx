@@ -13,8 +13,10 @@ import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
 import { CommentList } from "./comments";
 import { deepmerge } from '@mui/utils';
 
+
 const lightTheme = defaultLightTheme;
 const darkTheme = deepmerge(defaultDarkTheme, { palette: { mode: 'dark' } });
+
 
 export const App = () => (
   <Admin authProvider={authProvider} layout={Layout} dataProvider={dataProvider} dashboard={Dashboard} theme={lightTheme} darkTheme={darkTheme}>
@@ -23,6 +25,7 @@ export const App = () => (
         list={PostList} 
         edit={PostEdit} 
         create={PostCreate}
+       
         icon={PostIcon}
       />
       <Resource
