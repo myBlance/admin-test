@@ -17,7 +17,7 @@ import {
     Box,
     CardHeader,
 } from "@mui/material";
-import MyUrlField from './MyUrlField';
+import MyUrlField from '../MyUrlField';
 
 const userFilters = [
     <TextInput source="q" label="Search" alwaysOn />,
@@ -38,8 +38,9 @@ export const UserList = () => {
                     tertiaryText={(record) => record.email}
                 />
                 ) : (
-                <Datagrid>
-                    <TextField source="id" />
+                    
+                <Datagrid bulkActionButtons={false}>
+                    <TextField label="STT" source="id" />
                     <TextField source="name" />
                     <TextField source="username" />
                     <EmailField source="email" />
@@ -58,8 +59,8 @@ export const UserList = () => {
 const Aside = () =>(
     <Box sx={{ width: '300px', margin: '1em' }}>
         <List>
-            <Datagrid>
-                <TextField source="id" />
+            <Datagrid bulkActionButtons={false}>
+                <TextField label="STT" source="id" />
                 <TextField source="username" />
             </Datagrid>
         </List>
@@ -68,7 +69,7 @@ const Aside = () =>(
 
 export const UserEdit = () => (
     <Edit aside ={<Aside/>}>
-        <SimpleForm>
+        <SimpleForm >
             <CardHeader title="Welcome to user page" />
             <TextInput readOnly source="id" sx={{width: 200}}/>
             <TextInput source="name"/>

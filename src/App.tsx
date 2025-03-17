@@ -1,49 +1,45 @@
-import { Admin, Resource, defaultDarkTheme, defaultLightTheme} from "react-admin";
+import { Admin, Resource, defaultDarkTheme, defaultLightTheme } from "react-admin";
 import { Layout } from "./Layout";
 import { dataProvider } from "./dataProvider";
-import { UserEdit, UserList } from "./users";
-import { PostList, PostEdit, PostCreate } from "./posts";
-import { PhotoList, ShowGuesser } from "./photos";
+import {  PostList } from "./post/posts";
+import { UserEdit, UserList } from "./user/users";
+
 import PostIcon from "@mui/icons-material/Book";
 import UserIcon from "@mui/icons-material/Group";
 import { Dashboard } from './Dashboard';
 import { authProvider } from './authProvider';
-import CommentIcon from '@mui/icons-material/Comment';
-import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
-import { CommentList } from "./comments";
+
 import { deepmerge } from '@mui/utils';
+import { i18nProvider } from "./i18nProvider";
+import { PostCreate } from "./post/postCreate";
+import { PostEdit } from "./post/postEdit";
 
 
 const lightTheme = defaultLightTheme;
-const darkTheme = deepmerge(defaultDarkTheme, { palette: { mode: 'dark' } });
-
+const darkTheme = deepmerge(defaultDarkTheme, { palette: { mode: 'light' } });
 
 export const App = () => (
-  <Admin authProvider={authProvider} layout={Layout} dataProvider={dataProvider} dashboard={Dashboard} theme={lightTheme} darkTheme={darkTheme}>
+  <Admin  authProvider={authProvider} 
+          layout={Layout} 
+          dataProvider={dataProvider} 
+          dashboard={Dashboard} 
+          theme={lightTheme} darkTheme={darkTheme}
+          i18nProvider={i18nProvider} 
+          >
       <Resource
         name="posts" 
         list={PostList} 
         edit={PostEdit} 
         create={PostCreate}
-       
         icon={PostIcon}
+        options={{ label: "Bài viết" }}
       />
       <Resource
         name="users" 
         list={UserList} 
         edit={UserEdit}  
         icon={UserIcon}
-      />
-      <Resource
-        name="photos" 
-        show={ShowGuesser}
-        list={PhotoList}
-        icon={PhotoLibraryIcon}
-      />
-      <Resource
-        name="comments"
-        list={CommentList}
-        icon={CommentIcon}
+        options={{ label: "Người dùng" }}
       />
   </Admin>
 );
