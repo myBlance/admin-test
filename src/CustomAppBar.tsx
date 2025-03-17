@@ -6,7 +6,7 @@ export const CustomAppBar = () => {
     return (
         <Box
             sx={{
-              
+                
                 backgroundColor: "#ffffff", 
                 color: "white",
                 padding: "8px 16px",

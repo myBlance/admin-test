@@ -24,7 +24,7 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
     const pageTitle = breadcrumbNameMap[lastPath] || "Trang";
 
     return (
-        <Box sx={{ padding: "16px", borderBottom: "1px solid #ddd" }}>
+        <Box sx={{ padding: "16px", borderTop: "2px solid #ddd" }}>
             {/* Tiêu đề + nút hành động */}
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                 {/* Tiêu đề & Nút refresh */}
@@ -50,7 +50,7 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
                     </Button>
                     <Button
                         variant="contained"
-                        color="secondary"
+                        color="primary"
                         startIcon={<DownloadIcon />}
                         onClick={onUpload}
                     >

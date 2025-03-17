@@ -26,13 +26,31 @@ export const PostList = () => {
                     onCreate={() => redirect('/posts/create')}
                 />
             </Box>
-            <List filters={postFilters} actions={<></>}>
-                <Box sx={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "8px", padding: "8px", ml:3 }}>
+            <List filters={postFilters} actions={<></>} 
+                sx={{
+                    border: "2px solid #ddd",
+                    borderRadius:"20px",
+                    mt:"-10px",
+                    ml:"20px",
+                    mr:"20px",
+                    pt:"10px"
+                    }}
+                >
+                <Box sx={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "8px", padding: "8px", ml:3, color:"#2a77ca" }}>
                     <FilterListIcon/>
                     Bộ lọc
                 </Box>
 
-                <Datagrid rowClick="edit" bulkActionButtons={false}>
+                <Datagrid rowClick="edit" bulkActionButtons={false}
+                    sx={{ 
+                        "& .RaDatagrid-headerCell": {
+                            backgroundColor: "#f5f5f5", // Màu nền tiêu đề (tím)
+                            fontWeight: "bold", // Chữ đậm
+                        },
+                        "& .RaDatagrid-rowEven": { backgroundColor: "#ffffff" }, // Màu hàng chẵn
+                        "& .RaDatagrid-rowOdd": { backgroundColor: "#f5f5f5" }, // Màu hàng lẻ
+                    }}    
+                >
                     <TextField source="id" label="STT" />
                     <ReferenceField source="userId" reference="users" label="User" />
                     <TextField source="title" label="Title" />
