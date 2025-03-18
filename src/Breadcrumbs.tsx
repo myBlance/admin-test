@@ -9,7 +9,6 @@ import DownloadIcon from "@mui/icons-material/Download";
 const breadcrumbNameMap: Record<string, string> = {
     "/": "Trang chủ",
     "/posts": "Quản lý danh mục",
-    "/posts/list": "Danh sách chính sách ",
     "/users": "Danh sách người dùng"
 };
 
@@ -25,7 +24,7 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
     const pageTitle = breadcrumbNameMap[lastPath] || "Trang";
 
     return (
-        <Box sx={{ padding: "16px", borderTop: "2px solid #ddd" }}>
+        <Box sx={{ padding: "16px",  }}>
             {/* Tiêu đề + nút hành động */}
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                 <Box sx={{ display: "flex", alignItems: "center" }}>

@@ -36,6 +36,7 @@ export const PostList = () => {
                     mr:"20px",
                     mb:"20px",
                     pt:"10px",
+                    
                     }}
                 >
                 <Box sx={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "8px", padding: "8px", ml:3, color:"#2a77ca" }}>
@@ -50,9 +51,8 @@ export const PostList = () => {
                             fontWeight: "bold", 
                         },
                         "& .RaDatagrid-rowEven": { backgroundColor: "#ffffff" }, 
-                        "& .RaDatagrid-rowOdd": { backgroundColor: "#b9b9b9" 
-                        
-                        }, 
+                        "& .RaDatagrid-rowOdd": { backgroundColor: "#d6d5d5" }, 
+                        "&:hover": { backgroundColor: "#8f8f8f" },
                     }}    
                 >
                     <TextField source="id" label="STT" />

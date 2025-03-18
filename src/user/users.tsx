@@ -45,15 +45,17 @@ export const UserList = () => {
                     <FilterListIcon/>
                     Bộ lọc
                 </Box>
-            {isSmall ? (
-                <SimpleList
-                    primaryText={(record) => record.name}
-                    secondaryText={(record) => record.username}
-                    tertiaryText={(record) => record.email}
-                />
-                ) : (
+            
                     
-                <Datagrid bulkActionButtons={false}>
+                <Datagrid bulkActionButtons={false} sx={{ 
+                        "& .RaDatagrid-headerCell": {
+                            backgroundColor: "#b9b9b9", 
+                            fontWeight: "bold", 
+                        },
+                        "& .RaDatagrid-rowEven": { backgroundColor: "#ffffff" }, 
+                        "& .RaDatagrid-rowOdd": { backgroundColor: "#d6d5d5" }, 
+                        "&:hover": { backgroundColor: "#8f8f8f" },
+                    }}    >
                     <TextField label="STT" source="id" />
                     <TextField source="name" />
                     <TextField source="username" />
@@ -64,8 +66,8 @@ export const UserList = () => {
                     <TextField source="company.name" />
                     <DateField source="date"/>
                 </Datagrid>
-                )
-            }
+                
+            
         </List>
         </Card>
     );

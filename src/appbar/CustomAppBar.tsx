@@ -17,7 +17,7 @@ export const CustomAppBar: FC<CustomAppBarProps> = memo(({ onToggleSidebar, user
     return (
         <HideOnScroll >
             
-                <Toolbar disableGutters variant={isXSmall ? "regular" : "dense"}>
+                <Toolbar disableGutters variant={isXSmall ? "regular" : "dense"} sx={{borderBottom: "2px solid #ddd"}}>
                     {/* Nút mở sidebar */}
                     {onToggleSidebar ? (
                         <IconButton onClick={onToggleSidebar} sx={{ color: "#000", marginRight: 2 }}>
