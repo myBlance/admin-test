@@ -8,8 +8,8 @@ import DownloadIcon from "@mui/icons-material/Download";
 
 const breadcrumbNameMap: Record<string, string> = {
     "/": "Trang chủ",
-    "/posts": "Cấu hình hoa hồng",
-    "/posts/list": "Danh sách chính sách Hoa Hồng",
+    "/posts": "Quản lý danh mục",
+    "/posts/list": "Danh sách chính sách ",
     "/users": "Danh sách người dùng"
 };
 
@@ -28,7 +28,6 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
         <Box sx={{ padding: "16px", borderTop: "2px solid #ddd" }}>
             {/* Tiêu đề + nút hành động */}
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                {/* Tiêu đề & Nút refresh */}
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                     <Typography variant="h5" fontWeight="bold">
                         {pageTitle}
@@ -37,15 +36,13 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
                         <RefreshIcon />
                     </IconButton>
                 </Box>
-
-                {/* Nút Thêm mới & Tải lên */}
-                <Box>
+            <Box sx={{marginTop:2}}>
                     <Button
                         variant="contained"
                         color="primary"
                         startIcon={<AddIcon />}
                         onClick={onCreate}
-                        sx={{ marginRight: 1 }}
+                        sx={{ marginRight: 1, color:"#fff", backgroundColor:"#0052a9",  }}
                     >
                         Thêm mới
                     </Button>
@@ -54,11 +51,12 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
                         color="primary"
                         startIcon={<DownloadIcon />}
                         onClick={onUpload}
+                        sx={{color:"#fff", backgroundColor:"#0052a9"}}
                     >
                         Tải lên
                     </Button>
-                </Box>
             </Box>
+        </Box>
 
             {/* Breadcrumbs */}
             <Breadcrumbs aria-label="breadcrumb" sx={{ marginTop: "4px" }}>
@@ -69,11 +67,11 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
                     const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
                     const isLast = index === pathnames.length - 1;
                     return isLast ? (
-                        <Typography key={routeTo} color="textPrimary">
+                        <Typography key={routeTo} color="#000">
                             {breadcrumbNameMap[routeTo] || value}
                         </Typography>
                     ) : (
-                        <Link key={routeTo} color="inherit" href={routeTo}>
+                        <Link key={routeTo} color="#000" href={routeTo}>
                             {breadcrumbNameMap[routeTo] || value}
                         </Link>
                     );

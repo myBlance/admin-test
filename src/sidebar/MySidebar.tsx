@@ -9,7 +9,7 @@ import {
     Box
 } from "@mui/material";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import HomeIcon from "@mui/icons-material/Home";
@@ -18,7 +18,7 @@ import UserIcon from "@mui/icons-material/Group";
 import { MenuItemLink } from "react-admin";
 
 export const MySidebar = () => {
-    const navigate = useNavigate();
+   
     const [openUserMenu, setOpenUserMenu] = useState(false);
 
     return (
@@ -29,19 +29,18 @@ export const MySidebar = () => {
                 width: 240,
                 flexShrink: 0,
                 height: "100vh",
-                color: "#fff",
                 "& .MuiDrawer-paper": {
                     width: 240,
-                    backgroundColor: "dark",
-                    color: "#fff",
+                    backgroundColor: "#000",
+                    
                     overflowX: "hidden",
                 },
                 
             }}
         >
             {/* Logo & Tiêu đề */}
-            <Box sx={{ padding: "16px", textAlign: "center" }}>
-                <img src="/logo.png" alt="mobifone" width={120} />
+            <Box sx={{ padding: "16px", textAlign: "center"}}>
+                <img src="/src/images/download.png" alt="mobifone" width={120} />
             </Box>
 
             <List>  
@@ -101,12 +100,12 @@ export const MySidebar = () => {
                             sx={{ pl: 4, ml:4, color: "#fff", "& .MuiListItemIcon-root": { color: "#fff" },"&:hover": { backgroundColor: "#3873d1",color:"#FFF",},borderRadius:3,  }} 
                         />
                         <MenuItemLink 
-                            to="/users?filter={type:'admin'}" 
+                            to="/users1" 
                             primaryText="Quản trị viên" 
                             sx={{ pl: 4, ml:4, color: "#fff", "& .MuiListItemIcon-root": { color: "#fff" },"&:hover": { backgroundColor: "#3873d1",color:"#FFF",},borderRadius:3,  }} 
                         />
                         <MenuItemLink 
-                            to="/users?filter={type:'editor'}" 
+                            to="/users2" 
                             primaryText="Biên tập viên" 
                             sx={{ pl: 4, ml:4, color: "#fff", "& .MuiListItemIcon-root": { color: "#fff" },"&:hover": { backgroundColor: "#3873d1",color:"#FFF",},borderRadius:3,  }} 
                         />
@@ -115,7 +114,7 @@ export const MySidebar = () => {
             </List>
 
             {/* Phiên bản */}
-            <Box sx={{ position: "absolute", bottom: 100, left: 16 }}>
+            <Box sx={{ position: "absolute", bottom: 100, left: 60 }}>
                 <Typography variant="caption" color="#fff">
                     Version: 20241227.0
                 </Typography>

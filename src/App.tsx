@@ -1,4 +1,4 @@
-import { Admin, Resource, defaultDarkTheme, defaultLightTheme } from "react-admin";
+import { Admin, Resource } from "react-admin";
 import { Layout } from "./Layout";
 import { dataProvider } from "./dataProvider";
 import {  PostList } from "./post/posts";
@@ -9,23 +9,22 @@ import UserIcon from "@mui/icons-material/Group";
 import { Dashboard } from './dashboard/Dashboard';
 import { authProvider } from './auth/authProvider';
 
-import { deepmerge } from '@mui/utils';
+
 import { i18nProvider } from "./i18/i18nProvider";
 import { PostCreate } from "./post/postCreate";
 import { PostEdit } from "./post/postEdit";
 import { UserEdit } from "./user/userEdit";
+import { darkTheme } from "./theme/darkTheme";
+import { lightTheme } from "./theme/lightTheme";
 
-
-const lightTheme = defaultLightTheme;
-const darkTheme = deepmerge(defaultDarkTheme, { palette: { mode: 'light' } });
 
 export const App = () => (
   <Admin  authProvider={authProvider} 
           layout={Layout} 
           dataProvider={dataProvider} 
           dashboard={Dashboard} 
-          theme={darkTheme}
-          lightTheme={lightTheme}
+          theme={lightTheme}
+          darkTheme={darkTheme}
           i18nProvider={i18nProvider} 
           >
       <Resource

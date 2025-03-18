@@ -46,11 +46,13 @@ export const PostList = () => {
                 <Datagrid rowClick="edit" bulkActionButtons={false}
                     sx={{ 
                         "& .RaDatagrid-headerCell": {
-                            backgroundColor: "#f5f5f5", 
+                            backgroundColor: "#b9b9b9", 
                             fontWeight: "bold", 
                         },
                         "& .RaDatagrid-rowEven": { backgroundColor: "#ffffff" }, 
-                        "& .RaDatagrid-rowOdd": { backgroundColor: "#f5f5f5" }, 
+                        "& .RaDatagrid-rowOdd": { backgroundColor: "#b9b9b9" 
+                        
+                        }, 
                     }}    
                 >
                     <TextField source="id" label="STT" />
