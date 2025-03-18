@@ -2,15 +2,13 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import {
     Box,
     Card,
-    Theme,
-    useMediaQuery,
 } from "@mui/material";
 import {
     Datagrid,
+    DatagridConfigurable,
     DateField,
     EmailField,
     List,
-    SimpleList,
     TextField,
 } from "react-admin";
 import { redirect } from "react-router";
@@ -19,8 +17,9 @@ import CustomBreadcrumbs from "../Breadcrumbs";
 import MyUrlField from '../MyUrlField';
 import { userFilters } from "./userFilters";
 
+
 export const UserList = () => {
-    const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down("sm"));
+    
     return (
         <Card sx={{borderRadius:"20px", mr:"-24px", height:"100%",mt:"-64px"}} >
             <Box sx={{ padding: 2 }}>
@@ -30,7 +29,7 @@ export const UserList = () => {
                 />
             </Box>
         
-            <List filters={userFilters} actions={<></>}
+            <List filters={userFilters} actions={<></> }
                 sx={{
                     border: "2px solid #ddd",
                     borderRadius:"20px",
@@ -47,7 +46,7 @@ export const UserList = () => {
                 </Box>
             
                     
-                <Datagrid bulkActionButtons={false} sx={{ 
+                <DatagridConfigurable bulkActionButtons={false} sx={{ 
                         "& .RaDatagrid-headerCell": {
                             backgroundColor: "#b9b9b9", 
                             fontWeight: "bold", 
@@ -65,7 +64,7 @@ export const UserList = () => {
                     <MyUrlField source="website" />
                     <TextField source="company.name" />
                     <DateField source="date"/>
-                </Datagrid>
+                </DatagridConfigurable>
                 
             
         </List>

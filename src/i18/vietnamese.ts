@@ -4,6 +4,7 @@ const vietnameseMessages = {
             list: "Danh sách",
             edit: "Chỉnh sửa",
             create: "Tạo mới",
+            Columns: "Cột",
             dashboard: "Bảng điều khiển",
         },
         action: {
@@ -20,6 +21,7 @@ const vietnameseMessages = {
             export: 'Tải lên',
             add_filter: 'Lọc',
             sort: "Sắp xếp",
+            Columns: "Cột",
         },
         navigation: {
             next: 'Tiếp theo',

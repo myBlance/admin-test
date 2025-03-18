@@ -5,6 +5,7 @@ import {
 } from "@mui/material";
 import {
     Datagrid,
+    DatagridConfigurable,
     DateField,
     List,
     ReferenceField,
@@ -44,7 +45,7 @@ export const PostList = () => {
                     Bộ lọc
                 </Box>
 
-                <Datagrid rowClick="edit" bulkActionButtons={false}
+                <DatagridConfigurable rowClick="edit" bulkActionButtons={false}
                     sx={{ 
                         "& .RaDatagrid-headerCell": {
                             backgroundColor: "#b9b9b9", 
@@ -60,7 +61,7 @@ export const PostList = () => {
                     <TextField source="title" label="Title" />
                     <TextField source="body" label="Body" />
                     <DateField source="date" label="Date" />
-                </Datagrid>
+                </DatagridConfigurable>
             </List>
         </Card>
        

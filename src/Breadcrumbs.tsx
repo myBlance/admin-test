@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import AddIcon from "@mui/icons-material/Add";
 import DownloadIcon from "@mui/icons-material/Download";
+import { SelectColumnsButton } from "react-admin";
 
 const breadcrumbNameMap: Record<string, string> = {
     "/": "Trang chủ",
@@ -36,6 +37,7 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
                     </IconButton>
                 </Box>
             <Box sx={{marginTop:2}}>
+                    <SelectColumnsButton/>
                     <Button
                         variant="contained"
                         color="primary"
@@ -54,10 +56,9 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
                     >
                         Tải lên
                     </Button>
+                </Box>
             </Box>
-        </Box>
 
-            {/* Breadcrumbs */}
             <Breadcrumbs aria-label="breadcrumb" sx={{ marginTop: "4px" }}>
                 <Link color="inherit" href="/" sx={{ display: "flex", alignItems: "center" }}>
                     <HomeIcon />
