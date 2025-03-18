@@ -1,16 +1,13 @@
 import type { ReactNode } from "react";
 import { Layout as RALayout, CheckForApplicationUpdate } from "react-admin";
-import { MySidebar } from "./MySidebar";
-import { EmptyAppBar } from "./EmptyAppBar";
+import { MySidebar } from "./sidebar/MySidebar";
+import { EmptyAppBar } from "./appbar/EmptyAppBar";
 import { Box } from "@mui/material";
 
 export const Layout = ({ children }: { children: ReactNode }) => (
   
   <RALayout menu={MySidebar} appBar={EmptyAppBar} sx={{ "& .RaLayout-content": { paddingTop: 0 } }} >
-     <Box sx={{ padding: "16px", 
-
-     }}>
-      
+     <Box sx={{ padding: "16px", }}>
       {children && (
         <Box>
           {children}

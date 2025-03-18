@@ -1,36 +1,50 @@
-import { 
-    List, 
-    SimpleList, 
-    Datagrid, 
-    TextField, 
-    EmailField, 
-    Edit,
-    TextInput, 
-    ReferenceInput,
-    SimpleForm,
-    DateField,
-    DateTimeInput,
-} from "react-admin";
-import { 
-    useMediaQuery,
-    Theme,
+import FilterListIcon from '@mui/icons-material/FilterList';
+import {
     Box,
-    CardHeader,
+    Card,
+    Theme,
+    useMediaQuery,
 } from "@mui/material";
+import {
+    Datagrid,
+    DateField,
+    EmailField,
+    List,
+    SimpleList,
+    TextField,
+} from "react-admin";
+import { redirect } from "react-router";
+import { CustomAppBar } from "../appbar/CustomAppBar";
+import CustomBreadcrumbs from "../Breadcrumbs";
 import MyUrlField from '../MyUrlField';
-
-const userFilters = [
-    <TextInput source="q" label="Search" alwaysOn />,
-    <ReferenceInput source="user" label="User" reference="users" />,
-    <ReferenceInput source="phone" label="Phone" reference="phones" />,
-    <ReferenceInput source="company.name" label="Company" reference="companies" />,
-    <ReferenceInput source="address.street" label="Address street" reference="street" />,
-];
+import { userFilters } from "./userFilters";
 
 export const UserList = () => {
     const isSmall = useMediaQuery<Theme>((theme) => theme.breakpoints.down("sm"));
     return (
-        <List filters={userFilters}>
+        <Card sx={{borderRadius:"20px", mr:"-24px", height:"100%",mt:"-64px"}} >
+            <Box sx={{ padding: 2 }}>
+                <CustomAppBar/>
+                <CustomBreadcrumbs
+                    onCreate={() => redirect('/posts/create')}
+                />
+            </Box>
+        
+            <List filters={userFilters} actions={<></>}
+                sx={{
+                    border: "2px solid #ddd",
+                    borderRadius:"20px",
+                    mt:"-10px",
+                    ml:"20px",
+                    mr:"20px",
+                    mb:"20px",
+                    pt:"10px",
+                    }}
+                >
+                <Box sx={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "8px", padding: "8px", ml:3, color:"#2a77ca" }}>
+                    <FilterListIcon/>
+                    Bộ lọc
+                </Box>
             {isSmall ? (
                 <SimpleList
                     primaryText={(record) => record.name}
@@ -53,32 +67,9 @@ export const UserList = () => {
                 )
             }
         </List>
+        </Card>
     );
 };
 
-const Aside = () =>(
-    <Box sx={{ width: '300px', margin: '1em' }}>
-        <List>
-            <Datagrid bulkActionButtons={false}>
-                <TextField label="STT" source="id" />
-                <TextField source="username" />
-            </Datagrid>
-        </List>
-    </Box>
-)
 
-export const UserEdit = () => (
-    <Edit aside ={<Aside/>}>
-        <SimpleForm >
-            <CardHeader title="Welcome to user page" />
-            <TextInput readOnly source="id" sx={{width: 200}}/>
-            <TextInput source="name"/>
-            <TextInput source="username"/>
-            <TextInput source="company.name" />
-            <TextInput source="email" placeholder="Nhập email của bạn..." defaultValue="example@gmail.com" />
-            <TextInput source="address.street" />
-            <TextInput source="website" />
-            <DateTimeInput readOnly sx={{width: 200}} source="date" defaultValue={new Date().toISOString()} />
-        </SimpleForm>  
-    </Edit>
-);
+

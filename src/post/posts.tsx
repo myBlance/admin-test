@@ -1,10 +1,11 @@
+import FilterListIcon from '@mui/icons-material/FilterList';
 import {
     Box,
-    Card,  
+    Card,
 } from "@mui/material";
 import {
     Datagrid,
-    DateField,  
+    DateField,
     List,
     ReferenceField,
     TextField,
@@ -12,8 +13,8 @@ import {
 } from "react-admin";
 import CustomBreadcrumbs from '../Breadcrumbs';
 import { postFilters } from './postFilters';
-import FilterListIcon from '@mui/icons-material/FilterList';
-import { CustomAppBar } from "../CustomAppBar";
+import { CustomAppBar } from './../appbar/CustomAppBar';
+
 
 export const PostList = () => {
     const redirect = useRedirect();
@@ -21,7 +22,7 @@ export const PostList = () => {
     return (     
         <Card sx={{borderRadius:"20px", mr:"-24px", height:"100%",mt:"-64px"}} >
             <Box sx={{ padding: 2 }}>
-                <CustomAppBar/>
+                <CustomAppBar />
                 <CustomBreadcrumbs
                     onCreate={() => redirect('/posts/create')}
                 />
@@ -33,7 +34,8 @@ export const PostList = () => {
                     mt:"-10px",
                     ml:"20px",
                     mr:"20px",
-                    pt:"10px"
+                    mb:"20px",
+                    pt:"10px",
                     }}
                 >
                 <Box sx={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "8px", padding: "8px", ml:3, color:"#2a77ca" }}>
@@ -44,11 +46,11 @@ export const PostList = () => {
                 <Datagrid rowClick="edit" bulkActionButtons={false}
                     sx={{ 
                         "& .RaDatagrid-headerCell": {
-                            backgroundColor: "#f5f5f5", // Màu nền tiêu đề (tím)
-                            fontWeight: "bold", // Chữ đậm
+                            backgroundColor: "#f5f5f5", 
+                            fontWeight: "bold", 
                         },
-                        "& .RaDatagrid-rowEven": { backgroundColor: "#ffffff" }, // Màu hàng chẵn
-                        "& .RaDatagrid-rowOdd": { backgroundColor: "#f5f5f5" }, // Màu hàng lẻ
+                        "& .RaDatagrid-rowEven": { backgroundColor: "#ffffff" }, 
+                        "& .RaDatagrid-rowOdd": { backgroundColor: "#f5f5f5" }, 
                     }}    
                 >
                     <TextField source="id" label="STT" />

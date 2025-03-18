@@ -10,6 +10,7 @@ const breadcrumbNameMap: Record<string, string> = {
     "/": "Trang chủ",
     "/posts": "Cấu hình hoa hồng",
     "/posts/list": "Danh sách chính sách Hoa Hồng",
+    "/users": "Danh sách người dùng"
 };
 
 interface CustomBreadcrumbsProps {
