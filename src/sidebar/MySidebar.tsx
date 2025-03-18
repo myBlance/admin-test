@@ -50,7 +50,7 @@ export const MySidebar = () => {
                     to="/" 
                     primaryText="Trang chủ" 
                     leftIcon={<HomeIcon />} 
-                    sx={{ color: "#fff",
+                    sx={{ color: "#fff", 
                     "& .MuiListItemIcon-root": { color: "#fff"  },
                     "&:hover": { backgroundColor: "#3873d1"},borderRadius:3,
                     }} 
@@ -83,21 +83,32 @@ export const MySidebar = () => {
                 </ListItemButton>
 
                 <Collapse in={openUserMenu} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
+                    <List component="div" disablePadding sx={{
+                        "&::before": {
+                            content: '""',
+                            position: "absolute",
+                            left: 25, 
+                            top: 0,
+                            width: "1px", 
+                            height: "100%", 
+                            backgroundColor: "white", 
+                            opacity: 0.3, 
+                        },
+                    }}>
                         <MenuItemLink 
                             to="/users" 
                             primaryText="Tất cả người dùng" 
-                            sx={{ pl: 4, ml:4, color: "#fff", "& .MuiListItemIcon-root": { color: "#fff" },"&:hover": { backgroundColor: "#3873d1"},borderRadius:3,  }} 
+                            sx={{ pl: 4, ml:4, color: "#fff", "& .MuiListItemIcon-root": { color: "#fff" },"&:hover": { backgroundColor: "#3873d1",color:"#FFF",},borderRadius:3,  }} 
                         />
                         <MenuItemLink 
                             to="/users?filter={type:'admin'}" 
                             primaryText="Quản trị viên" 
-                            sx={{ pl: 4, ml:4, color: "#fff", "& .MuiListItemIcon-root": { color: "#fff" },"&:hover": { backgroundColor: "#3873d1"},borderRadius:3,  }} 
+                            sx={{ pl: 4, ml:4, color: "#fff", "& .MuiListItemIcon-root": { color: "#fff" },"&:hover": { backgroundColor: "#3873d1",color:"#FFF",},borderRadius:3,  }} 
                         />
                         <MenuItemLink 
                             to="/users?filter={type:'editor'}" 
                             primaryText="Biên tập viên" 
-                            sx={{ pl: 4, ml:4, color: "#fff", "& .MuiListItemIcon-root": { color: "#fff" },"&:hover": { backgroundColor: "#3873d1"},borderRadius:3,  }} 
+                            sx={{ pl: 4, ml:4, color: "#fff", "& .MuiListItemIcon-root": { color: "#fff" },"&:hover": { backgroundColor: "#3873d1",color:"#FFF",},borderRadius:3,  }} 
                         />
                     </List>
                 </Collapse>

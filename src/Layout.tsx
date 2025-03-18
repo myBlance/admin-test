@@ -6,7 +6,7 @@ import { Box } from "@mui/material";
 
 export const Layout = ({ children }: { children: ReactNode }) => (
   
-  <RALayout menu={MySidebar} appBar={EmptyAppBar} sx={{ "& .RaLayout-content": { paddingTop: 0 } }} >
+  <RALayout menu={MySidebar} appBar={EmptyAppBar} sx={{ "& .RaLayout-content": { paddingTop: 0 } }}   >
      <Box sx={{ padding: "16px", }}>
       {children && (
         <Box>

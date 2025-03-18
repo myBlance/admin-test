@@ -24,7 +24,8 @@ export const App = () => (
           layout={Layout} 
           dataProvider={dataProvider} 
           dashboard={Dashboard} 
-          theme={lightTheme} darkTheme={darkTheme}
+          theme={darkTheme}
+          lightTheme={lightTheme}
           i18nProvider={i18nProvider} 
           >
       <Resource
