@@ -4,18 +4,19 @@ import { TranslationMessages } from 'ra-core';
 const vietnameseMessages: TranslationMessages = {
     resources: {
         posts: {
-            name:"Bài viết",
+            name: "Bài viết",
             fields: {
-                userId:"Tên",
-                title:"Tiêu đề",
-                body:"Nội dung",
-                date:"Ngày",
+                userId: "Tên",
+                title: "Tiêu đề",
+                body: "Nội dung",
+                date: "Ngày",
             },
         },
 
         users: {
             name: "Người dùng",
             fields: {
+                search: "Tìm kiếm",
                 id: "Mã ID",
                 name: "Tên người dùng",
                 username: "Tên",
@@ -27,7 +28,6 @@ const vietnameseMessages: TranslationMessages = {
                 company: {
                     name: "Tên công ty"},
                 date:"Ngày",
-
             },
         },
     },
