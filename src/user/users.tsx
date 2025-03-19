@@ -4,7 +4,6 @@ import {
     Card,
 } from "@mui/material";
 import {
-    Datagrid,
     DatagridConfigurable,
     DateField,
     EmailField,
@@ -19,7 +18,6 @@ import { userFilters } from "./userFilters";
 
 
 export const UserList = () => {
-    
     return (
         <Card sx={{borderRadius:"20px", mr:"-24px", height:"100%",mt:"-64px"}} >
             <Box sx={{ padding: 2 }}>

@@ -1,7 +1,5 @@
 import { defaultLightTheme } from "react-admin";
 import { deepmerge } from "@mui/utils";
-import { colors } from "@mui/material";
-import { text } from "stream/consumers";
 
 export const lightTheme = deepmerge(defaultLightTheme, {
     palette: {
@@ -63,7 +61,7 @@ export const lightTheme = deepmerge(defaultLightTheme, {
                     backgroundColor: "#000",
                 },
             },
-        },
+        },  
         MuiTableCell: {
           styleOverrides: {
               root: {

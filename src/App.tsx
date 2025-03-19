@@ -1,6 +1,6 @@
 import { Admin, Resource } from "react-admin";
 import { Layout } from "./Layout";
-import { dataProvider } from "./dataProvider";
+import { dataProvider } from "./data/dataProvider";
 import {  PostList } from "./post/posts";
 import {  UserList } from "./user/users";
 
