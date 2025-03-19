@@ -35,7 +35,10 @@ export const CustomAppBar: FC<CustomAppBarProps> = memo(({ onToggleSidebar, user
                     
                     {darkTheme && <ToggleThemeButton />}
                     <LoadingIndicator />
-                    <LocalesMenuButton />
+                    <LocalesMenuButton languages={[
+                        { locale: 'en', name: 'English' },
+                        { locale: 'vi', name: 'Tiếng việt' },
+                    ]} />
                     
                     {/* Menu người dùng */}
                     {typeof userMenu === "boolean" ? (userMenu ? <UserMenu /> : null) : userMenu}
