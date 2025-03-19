@@ -1,7 +1,8 @@
+
 import { TranslationMessages } from 'ra-core';
 
 const vietnameseMessages: TranslationMessages = {
-    ra: {
+    ra: {    
         action: {
             add_filter: 'Thêm bộ lọc',
             add: 'Thêm',
@@ -186,6 +187,33 @@ const vietnameseMessages: TranslationMessages = {
             oneOf: 'Giá trị phải là một trong: %{options}',
             regex: 'Giá trị không đúng định dạng (phải khớp với mẫu: %{pattern})',
         },
+
+        configurable: {
+            customize: 'Tùy chỉnh',
+            configureMode: 'Cấu hình trang này',
+            inspector: {
+                title: 'Bảng kiểm tra',
+                content: 'Di chuột qua các thành phần giao diện để cấu hình chúng',
+                reset: 'Đặt lại cài đặt',
+                hideAll: 'Ẩn tất cả',
+                showAll: 'Hiển thị tất cả',
+            },
+            Datagrid: {
+                title: 'Bảng dữ liệu',
+                unlabeled: 'Cột không có nhãn #%{column}',
+            },
+            SimpleForm: {
+                title: 'Biểu mẫu',
+                unlabeled: 'Trường nhập không có nhãn #%{input}',
+            },
+            SimpleList: {
+                title: 'Danh sách',
+                primaryText: 'Văn bản chính',
+                secondaryText: 'Văn bản phụ',
+                tertiaryText: 'Văn bản thứ ba',
+            },
+        },
+        
     },
 };
 

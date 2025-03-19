@@ -4,7 +4,6 @@ import {
     Card,
 } from "@mui/material";
 import {
-    Datagrid,
     DatagridConfigurable,
     DateField,
     List,
