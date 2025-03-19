@@ -10,6 +10,13 @@ const vietnameseMessages: TranslationMessages = {
                 title: "Tiêu đề",
                 body: "Nội dung",
                 date: "Ngày",
+                category: "Danh mục sản phẩm",
+                unit: "Đơn vi",
+                search: "Tìm kiếm",
+                status:"Trạng thái",
+                created_at:"Ngày tạo",
+                product_name:"Tên sản phẩm",
+                product_code:"Mã sản phẩm",
             },
         },
 
