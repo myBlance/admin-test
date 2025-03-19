@@ -2,6 +2,35 @@
 import { TranslationMessages } from 'ra-core';
 
 const vietnameseMessages: TranslationMessages = {
+    resources: {
+        posts: {
+            name:"Bài viết",
+            fields: {
+                userId:"Tên",
+                title:"Tiêu đề",
+                body:"Nội dung",
+                date:"Ngày",
+            },
+        },
+
+        users: {
+            name: "Người dùng",
+            fields: {
+                id: "Mã ID",
+                name: "Tên người dùng",
+                username: "Tên",
+                email: "Email",
+                role: "Vai trò",
+                phone: "SĐT",
+                address: {
+                    street: "Địa chỉ" },
+                company: {
+                    name: "Tên công ty"},
+                date:"Ngày",
+
+            },
+        },
+    },
     ra: {    
         action: {
             add_filter: 'Thêm bộ lọc',

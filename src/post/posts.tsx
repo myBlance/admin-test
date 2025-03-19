@@ -56,10 +56,10 @@ export const PostList = () => {
                     }}    
                 >
                     <TextField source="id" label="STT" />
-                    <ReferenceField source="userId" reference="users" label="User" />
-                    <TextField source="title" label="Title" />
-                    <TextField source="body" label="Body" />
-                    <DateField source="date" label="Date" />
+                    <ReferenceField source="userId" reference="users" />
+                    <TextField source="title"/>
+                    <TextField source="body"  />
+                    <DateField source="date" />
                 </DatagridConfigurable>
             </List>
         </Card>

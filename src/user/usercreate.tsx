@@ -1,4 +1,4 @@
-import { Box, Card, CardHeader } from "@mui/material";
+import { Box, Card } from "@mui/material";
 import { Create, DateTimeInput, SimpleForm, TextInput } from "react-admin";
 import { CustomAppBar } from "../appbar/CustomAppBar";
 import { redirect } from "react-router";

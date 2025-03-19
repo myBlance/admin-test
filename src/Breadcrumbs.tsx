@@ -67,11 +67,11 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
                     const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
                     const isLast = index === pathnames.length - 1;
                     return isLast ? (
-                        <Typography key={routeTo} color="#000">
+                        <Typography key={routeTo} color="#000000">
                             {breadcrumbNameMap[routeTo] || value}
                         </Typography>
                     ) : (
-                        <Link key={routeTo} color="#000" href={routeTo}>
+                        <Link key={routeTo} color="#000000" href={routeTo}>
                             {breadcrumbNameMap[routeTo] || value}
                         </Link>
                     );
