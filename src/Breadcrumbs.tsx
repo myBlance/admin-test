@@ -41,11 +41,12 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
                     <Button
                         variant="contained"
                         color="primary"
+                        
                         startIcon={<AddIcon />}
                         onClick={onCreate}
                         sx={{ marginRight: 1, color:"#fff", backgroundColor:"#0052a9",  }}
                     >
-                        Thêm mới
+                        Thêm
                     </Button>
                     <Button
                         variant="contained"

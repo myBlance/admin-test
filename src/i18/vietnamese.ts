@@ -6,6 +6,7 @@ const vietnameseMessages: TranslationMessages = {
         posts: {
             name: "Bài viết",
             fields: {
+                user:"Người dùng",
                 userId: "Tên",
                 title: "Tiêu đề",
                 body: "Nội dung",

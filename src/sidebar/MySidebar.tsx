@@ -89,7 +89,7 @@ export const MySidebar = () => {
                     }
                     }}
                 >
-                    <ListItemIcon sx={{ color: "#fff !important" }}> 
+                    <ListItemIcon sx={{ color: "#fff !important" }}>
                         <UserIcon />
                     </ListItemIcon>
                     <ListItemText primary="Quản lý người dùng" sx={{ color: "#fff", whiteSpace: "nowrap", ml:-2}} />
