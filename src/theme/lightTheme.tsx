@@ -1,5 +1,7 @@
 import { defaultLightTheme } from "react-admin";
 import { deepmerge } from "@mui/utils";
+import { colors } from "@mui/material";
+import { text } from "stream/consumers";
 
 export const lightTheme = deepmerge(defaultLightTheme, {
     palette: {
@@ -11,16 +13,33 @@ export const lightTheme = deepmerge(defaultLightTheme, {
             paper: "#ffffff",   
         },
         text: {
-            primary: "#ffffff", 
+            primary: "#000000", 
         }
     },
     components: {
+        
+        
+        
+        MuiInputBase: {
+            styleOverrides: {
+                root: {
+                    color: "#000000",
+                },
+                input: {
+                    color: "#000000", 
+                }
+            }
+          },
+
+       
         MuiButton: {
             styleOverrides: {
                 root: {
                     textTransform: "none",
                     borderRadius: "8px",
                 },
+                
+                
             },
         },
         MuiPaper: {
@@ -28,6 +47,13 @@ export const lightTheme = deepmerge(defaultLightTheme, {
                 root: {
                     backgroundColor: "#fff",
                     color: "#000000",
+                },
+                input: {
+                    colors:"#000",
+                    "&::placeholder": {
+                        color: "#bbbbbb", // Màu placeholder
+                        opacity: 1, 
+                    },
                 },
             },
         },

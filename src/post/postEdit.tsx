@@ -1,5 +1,5 @@
-import { Box, Card, CardHeader } from "@mui/material";
-import { DateTimeInput, Edit, NumberInput, ReferenceInput, SimpleForm, TextInput } from "react-admin";
+import { Box, Card } from "@mui/material";
+import { DateTimeInput, Edit, NumberInput, SimpleForm, TextInput } from "react-admin";
 import { CustomAppBar } from "../appbar/CustomAppBar";
 import CustomBreadcrumbs from "../Breadcrumbs";
 import { redirect } from "react-router";
@@ -22,13 +22,12 @@ export const PostEdit = () => (
                     pt:"10px",
                     }}
                 >
-            <SimpleForm>
-                <CardHeader title="Post Edit" />
-                <NumberInput readOnly source="id" />
-                <ReferenceInput source="user" reference="users" link="show" />
-                <TextInput source="title" />
-                <TextInput source="body" multiline rows={5} />
-                <DateTimeInput readOnly source="date" defaultValue={new Date().toISOString()} />
+            <SimpleForm sx={{pl:8, pr:70}}>
+                <NumberInput readOnly source="id" variant="outlined"/>
+                <TextInput source="user" variant="outlined"/>
+                <TextInput source="title" variant="outlined"/>
+                <TextInput source="body" multiline rows={5} variant="outlined"/>
+                <DateTimeInput readOnly source="date" defaultValue={new Date().toISOString()} variant="outlined" sx={{width:200}}/>
             </SimpleForm>
         </Edit>
 </Card>

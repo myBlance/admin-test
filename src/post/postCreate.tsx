@@ -1,4 +1,4 @@
-import { Create, DateTimeInput, ReferenceInput, SimpleForm, TextInput } from "react-admin";
+import { Create, DateTimeInput, NumberInput, SimpleForm, TextInput } from "react-admin";
 import { CustomAppBar } from "../appbar/CustomAppBar";
 import CustomBreadcrumbs from "../Breadcrumbs";
 import { Box, Card } from "@mui/material";
@@ -21,11 +21,12 @@ export const PostCreate = () => (
             mb:"20px",
             pt:"10px",
             }}>
-            <SimpleForm>
-                <ReferenceInput source="userId" reference="users" />
-                <TextInput source="title" />
-                <TextInput source="body" multiline rows={5} />
-                <DateTimeInput readOnly source="date" defaultValue={new Date().toISOString()} />
+            <SimpleForm sx={{pl:8, pr:70}}>
+                <NumberInput readOnly source="id" variant="outlined"/>
+                <TextInput source="userId" variant="outlined" />
+                <TextInput source="title" variant="outlined"/>
+                <TextInput source="body" multiline rows={5} variant="outlined"/>
+                <DateTimeInput readOnly source="date" defaultValue={new Date().toISOString()} variant="outlined" sx={{width:200}}/>
             </SimpleForm>
         </Create>
     </Card>

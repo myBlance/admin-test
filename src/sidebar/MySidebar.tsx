@@ -52,6 +52,11 @@ export const MySidebar = () => {
                     sx={{ color: "#fff", 
                     "& .MuiListItemIcon-root": { color: "#fff"  },
                     "&:hover": { backgroundColor: "#3873d1"},borderRadius:3,
+                    "&.RaMenuItemLink-active": {
+                        backgroundColor: "#3873d1",  
+                        color: "#fff",               
+                       
+                    }
                     }} 
                 />
                 <MenuItemLink 
@@ -61,6 +66,11 @@ export const MySidebar = () => {
                     sx={{ color: "#fff", 
                     "& .MuiListItemIcon-root": { color: "#fff" },
                     "&:hover": { backgroundColor: "#3873d1"},borderRadius:3,
+                    "&.RaMenuItemLink-active": {
+                        backgroundColor: "#3873d1",  
+                        color: "#fff",               
+                       
+                    }
                  }} 
                     
                 />
@@ -72,6 +82,11 @@ export const MySidebar = () => {
                         color: "#fff",
                         "& .MuiListItemIcon-root": { color: "#fff !important" },
                         "&:hover": { backgroundColor: "#3873d1"},borderRadius:3,
+                        "&.RaMenuItemLink-active": {
+                        backgroundColor: "#3873d1",  
+                        color: "#fff",               
+                       
+                    }
                     }}
                 >
                     <ListItemIcon sx={{ color: "#fff !important" }}> {/* Chắc chắn icon trắng */}
@@ -97,17 +112,41 @@ export const MySidebar = () => {
                         <MenuItemLink 
                             to="/users" 
                             primaryText="Tất cả người dùng" 
-                            sx={{ pl: 4, ml:4, color: "#fff", "& .MuiListItemIcon-root": { color: "#fff" },"&:hover": { backgroundColor: "#3873d1",color:"#FFF",},borderRadius:3,  }} 
+                            sx={{ pl: 4, ml:4, 
+                                color: "#fff", 
+                                "& .MuiListItemIcon-root": { color: "#fff" },
+                                "&:hover": { backgroundColor: "#3873d1",color:"#FFF",},borderRadius:3,
+                                "&.RaMenuItemLink-active": {
+                        backgroundColor: "#3873d1",  
+                        color: "#fff",               
+                       
+                    }  }} 
                         />
                         <MenuItemLink 
                             to="/users1" 
                             primaryText="Quản trị viên" 
-                            sx={{ pl: 4, ml:4, color: "#fff", "& .MuiListItemIcon-root": { color: "#fff" },"&:hover": { backgroundColor: "#3873d1",color:"#FFF",},borderRadius:3,  }} 
+                            sx={{ pl: 4, ml:4, 
+                                color: "#fff", 
+                                "& .MuiListItemIcon-root": { color: "#fff" },
+                                "&:hover": { backgroundColor: "#3873d1",color:"#FFF",},borderRadius:3, 
+                                "&.RaMenuItemLink-active": {
+                        backgroundColor: "#3873d1",  
+                        color: "#fff",               
+                       
+                    } }} 
                         />
                         <MenuItemLink 
                             to="/users2" 
                             primaryText="Biên tập viên" 
-                            sx={{ pl: 4, ml:4, color: "#fff", "& .MuiListItemIcon-root": { color: "#fff" },"&:hover": { backgroundColor: "#3873d1",color:"#FFF",},borderRadius:3,  }} 
+                            sx={{ pl: 4, ml:4, 
+                                color: "#fff", 
+                                "& .MuiListItemIcon-root": { color: "#fff" },
+                                "&:hover": { backgroundColor: "#3873d1",color:"#FFF",},borderRadius:3, 
+                                "&.RaMenuItemLink-active": {
+                        backgroundColor: "#3873d1",  
+                        color: "#fff",               
+                       
+                    }  }} 
                         />
                     </List>
                 </Collapse>

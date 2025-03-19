@@ -25,7 +25,7 @@ export const UserList = () => {
             <Box sx={{ padding: 2 }}>
                 <CustomAppBar/>
                 <CustomBreadcrumbs
-                    onCreate={() => redirect('/posts/create')}
+                    onCreate={() => redirect('/users/create')}
                 />
             </Box>
         
