@@ -21,16 +21,16 @@ export const UserEdit = () => (
                     mb:"20px",
                     pt:"10px",
                     }}>
-            <SimpleForm >
+            <SimpleForm sx={{pl:8, pr:70}}>
                 <CardHeader title="Welcome to user page" />
-                <TextInput readOnly source="id" sx={{width: 200}}/>
-                <TextInput source="name"/>
-                <TextInput source="username"/>
-                <TextInput source="company.name" />
-                <TextInput source="email" placeholder="Nhập email của bạn..." defaultValue="example@gmail.com" />
-                <TextInput source="address.street" />
-                <TextInput source="website" />
-                <DateTimeInput readOnly sx={{width: 200}} source="date" defaultValue={new Date().toISOString()} />
+                <TextInput readOnly source="id" sx={{width: 200}} variant="outlined"/>
+                <TextInput source="name" variant="outlined"/>
+                <TextInput source="username" variant="outlined"/>
+                <TextInput source="company.name" variant="outlined"/>
+                <TextInput source="email" placeholder="Nhập email của bạn..." defaultValue="example@gmail.com" variant="outlined" />
+                <TextInput source="address.street" variant="outlined" />
+                <TextInput source="website" variant="outlined"/>
+                <DateTimeInput readOnly sx={{width: 200}} source="date" defaultValue={new Date().toISOString()} variant="outlined" />
             </SimpleForm>  
         </Edit>
     </Card>

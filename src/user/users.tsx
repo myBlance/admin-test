@@ -10,9 +10,10 @@ import {
     EmailField,
     List,
     TextField,
+    useRedirect,
     useTranslate,
 } from "react-admin";
-import { redirect } from "react-router";
+
 import { CustomAppBar } from "../appbar/CustomAppBar";
 import CustomBreadcrumbs from "../Breadcrumbs";
 import MyUrlField from '../MyUrlField';
@@ -20,6 +21,7 @@ import { userFilters } from "./userFilters";
 
 
 export const UserList = () => {
+    const redirect = useRedirect();
     const translate = useTranslate();
 
     return (
