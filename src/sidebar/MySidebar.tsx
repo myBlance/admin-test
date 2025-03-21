@@ -9,7 +9,6 @@ import {
     Box
 } from "@mui/material";
 import { useState } from "react";
-
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import HomeIcon from "@mui/icons-material/Home";
@@ -18,25 +17,21 @@ import UserIcon from "@mui/icons-material/Group";
 import { MenuItemLink, useTranslate } from "react-admin";
 
 export const MySidebar = () => {
-   
     const [openUserMenu, setOpenUserMenu] = useState(false);
     const translate = useTranslate();
 
     return (
         <Drawer
             variant="permanent"
-            sx={{
-                
+            sx={{                
                 width: 240,
                 flexShrink: 0,
                 height: "100vh",
                 "& .MuiDrawer-paper": {
                     width: 240,
                     backgroundColor: "#000",
-                    
                     overflowX: "hidden",
-                },
-                
+                },               
             }}
         >
             {/* Logo & Tiêu đề */}
@@ -44,8 +39,7 @@ export const MySidebar = () => {
                 <img src="/src/images/download.png" alt="mobifone" width={120} />
             </Box>
 
-            <List sx={{mt:2, mb:2}}>  
-    
+            <List sx={{mt:2, mb:2,}}>     
                 <MenuItemLink 
                     to="/" 
                     primaryText={translate("menu.home")}
@@ -82,8 +76,7 @@ export const MySidebar = () => {
                         "&:hover": { backgroundColor: "#3873d1"},borderRadius:3,
                         "&.RaMenuItemLink-active": {
                         backgroundColor: "#3873d1",  
-                        color: "#fff",               
-                       
+                        color: "#fff",                                      
                     }
                     }}
                 >
@@ -111,17 +104,16 @@ export const MySidebar = () => {
                     }}>
                         <MenuItemLink 
                             to="/users" 
-                            primaryText={translate("menu.users")}
-                            
+                            primaryText={translate("menu.users")}                            
                             sx={{ pl: 4, ml:4, 
                                 color: "#fff", 
                                 "& .MuiListItemIcon-root": { color: "#fff" },
                                 "&:hover": { backgroundColor: "#3873d1",color:"#FFF",},borderRadius:3,
                                 "&.RaMenuItemLink-active": {
-                        backgroundColor: "#3873d1",  
-                        color: "#fff",               
-                       
-                    }  }} 
+                                    backgroundColor: "#3873d1",  
+                                    color: "#fff",               
+                                }  
+                            }} 
                         />
                         <MenuItemLink 
                             to="/users1" 
@@ -131,10 +123,10 @@ export const MySidebar = () => {
                                 "& .MuiListItemIcon-root": { color: "#fff" },
                                 "&:hover": { backgroundColor: "#3873d1",color:"#FFF",},borderRadius:3, 
                                 "&.RaMenuItemLink-active": {
-                        backgroundColor: "#3873d1",  
-                        color: "#fff",               
-                       
-                    } }} 
+                                    backgroundColor: "#3873d1",  
+                                    color: "#fff",               
+                                } 
+                            }} 
                         />
                         <MenuItemLink 
                             to="/users2" 
@@ -144,10 +136,10 @@ export const MySidebar = () => {
                                 "& .MuiListItemIcon-root": { color: "#fff" },
                                 "&:hover": { backgroundColor: "#3873d1",color:"#FFF",},borderRadius:3, 
                                 "&.RaMenuItemLink-active": {
-                        backgroundColor: "#3873d1",  
-                        color: "#fff",               
-                       
-                    }  }} 
+                                    backgroundColor: "#3873d1",  
+                                    color: "#fff",               
+                                }
+                            }} 
                         />
                     </List>
                 </Collapse>

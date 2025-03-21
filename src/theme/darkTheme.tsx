@@ -15,8 +15,6 @@ export const darkTheme = deepmerge(defaultDarkTheme, {
       }
   },
 
-
-  
   components: {
       MuiButton: {
           styleOverrides: {

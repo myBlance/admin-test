@@ -16,9 +16,7 @@ export const CustomAppBar: FC<CustomAppBarProps> = memo(({ onToggleSidebar, user
     
     return (
         <HideOnScroll >
-            
                 <Toolbar disableGutters variant={isXSmall ? "regular" : "dense"} sx={{borderBottom: "2px solid #ddd"}}>
-                    
                     {onToggleSidebar ? (
                         <IconButton onClick={onToggleSidebar} sx={{ color: "#000", marginRight: 2 }}>
                             <MenuIcon />
@@ -36,14 +34,13 @@ export const CustomAppBar: FC<CustomAppBarProps> = memo(({ onToggleSidebar, user
                     {darkTheme && <ToggleThemeButton />}
                     <LoadingIndicator />
                     <LocalesMenuButton languages={[
-                        { locale: 'en', name: 'English' },
-                        { locale: 'vi', name: 'Tiếng việt' },
+                        { locale: 'en', name: 'EN' },
+                        { locale: 'vi', name: 'VI ' },
                     ]} />
-                    
+
                     {/* Menu người dùng */}
                     {typeof userMenu === "boolean" ? (userMenu ? <UserMenu /> : null) : userMenu}
                 </Toolbar>
-            
         </HideOnScroll>
     );
 });

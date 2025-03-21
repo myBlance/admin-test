@@ -12,15 +12,17 @@ export const PostCreate = () => (
                 onCreate={() => redirect('/posts/create')}
             />
         </Box>
-        <Create sx={{
-            border: "2px solid #ddd",
-            borderRadius:"20px",
-            mt:"-10px",
-            ml:"20px",
-            mr:"20px",
-            mb:"20px",
-            pt:"10px",
-            }}>
+        <Create 
+            sx={{
+                border: "2px solid #ddd",
+                borderRadius:"20px",
+                mt:"-10px",
+                ml:"20px",
+                mr:"20px",
+                mb:"20px",
+                pt:"10px",
+            }}
+        >
             <SimpleForm sx={{pl:8, pr:70}}>
                 <NumberInput readOnly source="id" variant="outlined"/>
                 <TextInput source="userId" variant="outlined" />

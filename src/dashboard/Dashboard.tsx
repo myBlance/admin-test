@@ -7,7 +7,8 @@ export const Dashboard = () => (
             <CustomAppBar />
             
             <CardHeader title="Welcome to the administration" />
-            <CardContent>He nhô nhô:</CardContent>
+            
+            <CardContent>Welcome to the administration</CardContent>
         </Box>
     </Card>
 );

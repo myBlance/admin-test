@@ -12,15 +12,17 @@ export const UserEdit = () => (
                 onCreate={() => redirect('/users/create')}
             />
         </Box>
-        <Create sx={{
-                    border: "2px solid #ddd",
-                    borderRadius:"20px",
-                    mt:"-10px",
-                    ml:"20px",
-                    mr:"20px",
-                    mb:"20px",
-                    pt:"10px",
-                    }}>
+        <Create 
+            sx={{
+                border: "2px solid #ddd",
+                borderRadius:"20px",
+                mt:"-10px",
+                ml:"20px",
+                mr:"20px",
+                mb:"20px",
+                pt:"10px",
+            }}
+        >
             <SimpleForm >
                 <TextInput readOnly source="id" sx={{width: 200}}/>
                 <TextInput source="name"/>

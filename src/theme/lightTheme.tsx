@@ -16,9 +16,7 @@ export const lightTheme = deepmerge(defaultLightTheme, {
     },
     components: {
         
-        
-        
-        MuiInputBase: {
+       MuiInputBase: {
             styleOverrides: {
                 root: {
                     color: "#000000",

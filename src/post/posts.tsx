@@ -17,7 +17,6 @@ import CustomBreadcrumbs from '../Breadcrumbs';
 import { postFilters } from './postFilters';
 import { CustomAppBar } from './../appbar/CustomAppBar';
 
-
 export const PostList = () => {
     const redirect = useRedirect();
     const translate = useTranslate();
@@ -27,7 +26,7 @@ export const PostList = () => {
             <Box sx={{ padding: 2 }}>
                 <CustomAppBar />
                 <CustomBreadcrumbs
-                    onCreate={() => redirect('/posts/create')}
+                    onCreate={() => redirect('/posts/create')}                    
                 />
             </Box>
             <List filters={postFilters} actions={<></>} 
@@ -39,7 +38,6 @@ export const PostList = () => {
                     mr:"20px",
                     mb:"20px",
                     pt:"10px",
-                    
                     }}
                 >
                 <Box >

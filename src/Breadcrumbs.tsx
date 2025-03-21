@@ -37,12 +37,11 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
                         <RefreshIcon />
                     </IconButton>
                 </Box>
-            <Box sx={{marginTop:2}}>
+                <Box sx={{marginTop:2}}>
                     <SelectColumnsButton/>
                     <Button
                         variant="contained"
                         color="primary"
-                        
                         startIcon={<AddIcon />}
                         onClick={onCreate}
                         sx={{ marginRight: 1, color:"#fff", backgroundColor:"#0052a9",  }}

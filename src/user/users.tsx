@@ -19,7 +19,6 @@ import CustomBreadcrumbs from "../Breadcrumbs";
 import MyUrlField from '../MyUrlField';
 import { userFilters } from "./userFilters";
 
-
 export const UserList = () => {
     const redirect = useRedirect();
     const translate = useTranslate();
@@ -52,9 +51,9 @@ export const UserList = () => {
                         </Box>
                     </Button>
                 </Box>
-            
-                    
-                <DatagridConfigurable bulkActionButtons={false} sx={{ 
+                
+                <DatagridConfigurable bulkActionButtons={false} 
+                    sx={{ 
                         "& .RaDatagrid-headerCell": {
                             backgroundColor: "#b9b9b9", 
                             fontWeight: "bold", 
@@ -62,7 +61,8 @@ export const UserList = () => {
                         "& .RaDatagrid-rowEven": { backgroundColor: "#ffffff" }, 
                         "& .RaDatagrid-rowOdd": { backgroundColor: "#d6d5d5" }, 
                         "&:hover": { backgroundColor: "#8f8f8f" },
-                    }}    >
+                    }}    
+                >
                     <TextField label="STT" source="id" />
                     <TextField source="name" />
                     <TextField source="username" />
@@ -72,10 +72,8 @@ export const UserList = () => {
                     <MyUrlField source="website" />
                     <TextField source="company.name" />
                     <DateField source="date"/>
-                </DatagridConfigurable>
-                
-            
-        </List>
+                </DatagridConfigurable> 
+            </List>
         </Card>
     );
 };

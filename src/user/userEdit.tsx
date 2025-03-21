@@ -20,7 +20,8 @@ export const UserEdit = () => (
                     mr:"20px",
                     mb:"20px",
                     pt:"10px",
-                    }}>
+                }}
+        >
             <SimpleForm sx={{pl:8, pr:70}}>
                 <CardHeader title="Welcome to user page" />
                 <TextInput readOnly source="id" sx={{width: 200}} variant="outlined"/>
