@@ -5,12 +5,12 @@ import { useLocation } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import AddIcon from "@mui/icons-material/Add";
 import DownloadIcon from "@mui/icons-material/Download";
-import { SelectColumnsButton } from "react-admin";
+import { SelectColumnsButton, useTranslate } from "react-admin";
 
 const breadcrumbNameMap: Record<string, string> = {
-    "/": "Trang chủ",
-    "/posts": "Quản lý danh mục",
-    "/users": "Danh sách người dùng"
+    "/": "pages.home",
+    "/posts": "pages.categories",
+    "/users": "pages.users",
 };
 
 interface CustomBreadcrumbsProps {
@@ -20,17 +20,18 @@ interface CustomBreadcrumbsProps {
 
 const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUpload }) => {
     const location = useLocation();
+    const translate = useTranslate();
     const pathnames = location.pathname.split("/").filter((x) => x);
     const lastPath = `/${pathnames.join("/")}`;
     const pageTitle = breadcrumbNameMap[lastPath] || "Trang";
 
     return (
         <Box sx={{ padding: "16px",  }}>
-            {/* Tiêu đề + nút hành động */}
+            
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                     <Typography variant="h5" fontWeight="bold">
-                        {pageTitle}
+                        {translate(pageTitle)}
                     </Typography>
                     <IconButton onClick={() => window.location.reload()} sx={{ marginLeft: 1 }}>
                         <RefreshIcon />
@@ -46,7 +47,7 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
                         onClick={onCreate}
                         sx={{ marginRight: 1, color:"#fff", backgroundColor:"#0052a9",  }}
                     >
-                        Thêm
+                        {translate("buttons.add")}
                     </Button>
                     <Button
                         variant="contained"
@@ -55,7 +56,7 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
                         onClick={onUpload}
                         sx={{color:"#fff", backgroundColor:"#0052a9"}}
                     >
-                        Tải lên
+                        {translate("buttons.upload")}
                     </Button>
                 </Box>
             </Box>

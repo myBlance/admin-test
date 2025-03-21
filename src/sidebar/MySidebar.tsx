@@ -15,11 +15,12 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import HomeIcon from "@mui/icons-material/Home";
 import PostIcon from "@mui/icons-material/Book";
 import UserIcon from "@mui/icons-material/Group";
-import { MenuItemLink } from "react-admin";
+import { MenuItemLink, useTranslate } from "react-admin";
 
 export const MySidebar = () => {
    
     const [openUserMenu, setOpenUserMenu] = useState(false);
+    const translate = useTranslate();
 
     return (
         <Drawer
@@ -43,11 +44,11 @@ export const MySidebar = () => {
                 <img src="/src/images/download.png" alt="mobifone" width={120} />
             </Box>
 
-            <List>  
+            <List sx={{mt:2, mb:2}}>  
     
                 <MenuItemLink 
                     to="/" 
-                    primaryText="Trang chủ" 
+                    primaryText={translate("menu.home")}
                     leftIcon={<HomeIcon />} 
                     sx={{ color: "#fff", 
                     "& .MuiListItemIcon-root": { color: "#fff"  },
@@ -55,13 +56,12 @@ export const MySidebar = () => {
                     "&.RaMenuItemLink-active": {
                         backgroundColor: "#3873d1",  
                         color: "#fff",               
-                       
                     }
                     }} 
                 />
                 <MenuItemLink 
                     to="/posts" 
-                    primaryText="Quản lý danh mục" 
+                    primaryText={translate("menu.categories")}
                     leftIcon={<PostIcon />} 
                     sx={{ color: "#fff", 
                     "& .MuiListItemIcon-root": { color: "#fff" },
@@ -69,10 +69,8 @@ export const MySidebar = () => {
                     "&.RaMenuItemLink-active": {
                         backgroundColor: "#3873d1",  
                         color: "#fff",               
-                       
                     }
                  }} 
-                    
                 />
 
                 {/* Quản lý người dùng (Menu có cấp bậc) */}
@@ -92,7 +90,9 @@ export const MySidebar = () => {
                     <ListItemIcon sx={{ color: "#fff !important" }}>
                         <UserIcon />
                     </ListItemIcon>
-                    <ListItemText primary="Quản lý người dùng" sx={{ color: "#fff", whiteSpace: "nowrap", ml:-2}} />
+                    <ListItemText
+                        primary={translate("menu.management")}
+                        sx={{ color: "#fff", whiteSpace: "nowrap", ml:-2}} />
                     {openUserMenu ? <ExpandLess sx={{ color: "#fff" }} /> : <ExpandMore sx={{ color: "#fff" }} />}
                 </ListItemButton>
 
@@ -111,7 +111,8 @@ export const MySidebar = () => {
                     }}>
                         <MenuItemLink 
                             to="/users" 
-                            primaryText="Tất cả người dùng" 
+                            primaryText={translate("menu.users")}
+                            
                             sx={{ pl: 4, ml:4, 
                                 color: "#fff", 
                                 "& .MuiListItemIcon-root": { color: "#fff" },
@@ -124,7 +125,7 @@ export const MySidebar = () => {
                         />
                         <MenuItemLink 
                             to="/users1" 
-                            primaryText="Quản trị viên" 
+                            primaryText={translate("menu.admin")} 
                             sx={{ pl: 4, ml:4, 
                                 color: "#fff", 
                                 "& .MuiListItemIcon-root": { color: "#fff" },
@@ -137,7 +138,7 @@ export const MySidebar = () => {
                         />
                         <MenuItemLink 
                             to="/users2" 
-                            primaryText="Biên tập viên" 
+                            primaryText={translate("menu.editor")}
                             sx={{ pl: 4, ml:4, 
                                 color: "#fff", 
                                 "& .MuiListItemIcon-root": { color: "#fff" },

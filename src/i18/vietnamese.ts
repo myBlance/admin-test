@@ -1,7 +1,9 @@
 
 import { TranslationMessages } from 'ra-core';
 
+
 const vietnameseMessages: TranslationMessages = {
+
     resources: {
         posts: {
             name: "Bài viết",
@@ -38,6 +40,24 @@ const vietnameseMessages: TranslationMessages = {
                 date:"Ngày",
             },
         },
+    },
+    menu: {
+        categories: "Quản lý danh mục",
+        home:"Trang chủ",
+        management:"Quản lý người dùng",
+        users:"Danh sách người dùng",
+        admin:"Quản trị viên",
+        editor:"Biên tập viên",
+    },
+    buttons: {
+        add: "Thêm",
+        upload: "Tải lên",
+        filter: "Bộ lọc",
+    },
+    pages: {
+        home: "Trang chủ",
+        categories: "Quản lý danh mục",
+        users: "Danh sách người dùng",
     },
     ra: {    
         action: {

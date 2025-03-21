@@ -1,6 +1,6 @@
 import polyglotI18nProvider from 'ra-i18n-polyglot';
 import vietnameseMessages from './vietnamese';
-import englishMessages from 'ra-language-english';
+import englishMessages from './english';
 
 const messages: Record<string, any> = {
     vi: vietnameseMessages,

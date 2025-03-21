@@ -4,11 +4,13 @@ import {
     Card,
 } from "@mui/material";
 import {
+    Button,
     DatagridConfigurable,
     DateField,
     EmailField,
     List,
     TextField,
+    useTranslate,
 } from "react-admin";
 import { redirect } from "react-router";
 import { CustomAppBar } from "../appbar/CustomAppBar";
@@ -18,6 +20,8 @@ import { userFilters } from "./userFilters";
 
 
 export const UserList = () => {
+    const translate = useTranslate();
+
     return (
         <Card sx={{borderRadius:"20px", mr:"-24px", height:"100%",mt:"-64px"}} >
             <Box sx={{ padding: 2 }}>
@@ -38,9 +42,13 @@ export const UserList = () => {
                     pt:"10px",
                     }}
                 >
-                <Box sx={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "8px", padding: "8px", ml:3, color:"#2a77ca" }}>
-                    <FilterListIcon/>
-                    Bộ lọc
+                <Box >
+                    <Button>
+                        <Box sx={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: "8px", padding: "8px", ml:3, color:"#2a77ca" }}>
+                            <FilterListIcon/>
+                            {translate("buttons.filter")}
+                        </Box>
+                    </Button>
                 </Box>
             
                     
