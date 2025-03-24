@@ -21,7 +21,9 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 const breadcrumbNameMap: Record<string, string> = {
     "/": "pages.home",
     "/posts": "pages.categories",
+    "/posts/create": "pages.create",
     "/users": "pages.users",
+    "/users/create": "pages.create",
 };
 
 interface CustomBreadcrumbsProps {

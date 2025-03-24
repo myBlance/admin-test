@@ -55,6 +55,7 @@ const vietnameseMessages: TranslationMessages = {
     pages: {
         home: "Trang chủ",
         categories: "Quản lý danh mục",
+        create:"Tạo mới",
         users: "Danh sách người dùng",
     },
     ra: {    
