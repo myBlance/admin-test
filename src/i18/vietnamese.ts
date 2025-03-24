@@ -38,6 +38,7 @@ const vietnameseMessages: TranslationMessages = {
             },
         },
     },
+
     menu: {
         categories: "Quản lý danh mục",
         home:"Trang chủ",

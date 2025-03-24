@@ -1,4 +1,9 @@
-import { Box, Card, CardContent, CardHeader } from "@mui/material";
+import { 
+        Box, 
+        Card, 
+        CardContent, 
+        CardHeader 
+} from "@mui/material";
 import { CustomAppBar } from "../appbar/CustomAppBar";
 
 export const Dashboard = () => (

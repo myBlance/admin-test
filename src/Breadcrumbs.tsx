@@ -6,6 +6,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import AddIcon from "@mui/icons-material/Add";
 import DownloadIcon from "@mui/icons-material/Download";
 import { SelectColumnsButton, useTranslate } from "react-admin";
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 const breadcrumbNameMap: Record<string, string> = {
     "/": "pages.home",
@@ -24,6 +25,7 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
     const pathnames = location.pathname.split("/").filter((x) => x);
     const lastPath = `/${pathnames.join("/")}`;
     const pageTitle = breadcrumbNameMap[lastPath] || "Trang";
+    
 
     return (
         <Box sx={{ padding: "16px",  }}>
@@ -60,20 +62,25 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
                 </Box>
             </Box>
 
-            <Breadcrumbs aria-label="breadcrumb" sx={{ marginTop: "4px" }}>
+            <Breadcrumbs 
+                    separator={<NavigateNextIcon fontSize="small" />} 
+                    aria-label="breadcrumb" 
+                    sx={{ marginTop: "4px" }}
+            >
                 <Link color="inherit" href="/" sx={{ display: "flex", alignItems: "center" }}>
                     <HomeIcon />
                 </Link>
                 {pathnames.map((value, index) => {
                     const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
                     const isLast = index === pathnames.length - 1;
+                    const translatedName = translate(breadcrumbNameMap[routeTo]) || translate(value) || value;
                     return isLast ? (
                         <Typography key={routeTo} color="#000000">
-                            {breadcrumbNameMap[routeTo] || value}
+                            {translatedName}
                         </Typography>
                     ) : (
                         <Link key={routeTo} color="#000000" href={routeTo}>
-                            {breadcrumbNameMap[routeTo] || value}
+                            {translatedName}
                         </Link>
                     );
                 })}

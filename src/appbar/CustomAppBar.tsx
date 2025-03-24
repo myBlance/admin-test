@@ -1,7 +1,25 @@
-import { Toolbar, IconButton, useMediaQuery, Theme } from "@mui/material";
+import { 
+        Toolbar, 
+        IconButton, 
+        useMediaQuery, 
+        Theme 
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { HideOnScroll, LoadingIndicator, LocalesMenuButton, SidebarToggleButton, TitlePortal, ToggleThemeButton, UserMenu, useThemesContext } from "react-admin";
-import { FC, ReactNode, memo } from "react";
+import { 
+        HideOnScroll, 
+        LoadingIndicator, 
+        LocalesMenuButton, 
+        SidebarToggleButton, 
+        TitlePortal, 
+        ToggleThemeButton, 
+        UserMenu, 
+        useThemesContext 
+} from "react-admin";
+import { 
+        FC, 
+        ReactNode, 
+        memo 
+} from "react";
 
 
 interface CustomAppBarProps {
