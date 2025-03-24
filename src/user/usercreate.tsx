@@ -1,10 +1,15 @@
 import { Box, Card } from "@mui/material";
-import { Create, DateTimeInput, SimpleForm, TextInput } from "react-admin";
+import { 
+    Create, 
+    DateTimeInput, 
+    SimpleForm, 
+    TextInput 
+} from "react-admin";
 import { CustomAppBar } from "../appbar/CustomAppBar";
 import { redirect } from "react-router";
 import CustomBreadcrumbs from "../Breadcrumbs";
 
-export const UserEdit = () => (
+export const UserCreate = () => (
     <Card sx={{borderRadius:"20px", mr:"-24px", height:"100%",mt:"-64px"}} >
         <Box sx={{ padding: 2 }}>
             <CustomAppBar />
@@ -23,15 +28,15 @@ export const UserEdit = () => (
                 pt:"10px",
             }}
         >
-            <SimpleForm >
-                <TextInput readOnly source="id" sx={{width: 200}}/>
-                <TextInput source="name"/>
-                <TextInput source="username"/>
-                <TextInput source="company.name" />
-                <TextInput source="email" placeholder="Nhập email của bạn..." defaultValue="example@gmail.com" />
-                <TextInput source="address.street" />
-                <TextInput source="website" />
-                <DateTimeInput readOnly sx={{width: 200}} source="date" defaultValue={new Date().toISOString()} />
+            <SimpleForm  sx={{pl:8, pr:70}}>
+                <TextInput source="id" sx={{width: 200}} variant="outlined"/>
+                <TextInput source="name" variant="outlined"/>
+                <TextInput source="username" variant="outlined"/>
+                <TextInput source="company.name" variant="outlined"/>
+                <TextInput source="email" placeholder="Nhập email của bạn..." defaultValue="example@gmail.com" variant="outlined"/>
+                <TextInput source="address.street" variant="outlined"/>
+                <TextInput source="website" variant="outlined"/>
+                <DateTimeInput readOnly sx={{width: 200}} source="date" defaultValue={new Date().toISOString()} variant="outlined"/>
             </SimpleForm>  
         </Create>
     </Card>

@@ -25,7 +25,7 @@ export const PostList = () => {
         <Card sx={{borderRadius:"20px", mr:"-24px", height:"100%",mt:"-64px"}} >
             <Box sx={{ padding: 2 }}>
                 <CustomAppBar />
-                <CustomBreadcrumbs
+                <CustomBreadcrumbs 
                     onCreate={() => redirect('/posts/create')}                    
                 />
             </Box>

@@ -5,12 +5,16 @@ import { useLocation } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import AddIcon from "@mui/icons-material/Add";
 import DownloadIcon from "@mui/icons-material/Download";
-import { SelectColumnsButton, useTranslate } from "react-admin";
+import { 
+    SelectColumnsButton, 
+    useTranslate 
+} from "react-admin";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 const breadcrumbNameMap: Record<string, string> = {
     "/": "pages.home",
     "/posts": "pages.categories",
+    "/posts/categories":"pages.create",
     "/users": "pages.users",
 };
 
@@ -28,8 +32,7 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
     
 
     return (
-        <Box sx={{ padding: "16px",  }}>
-            
+        <Box sx={{ padding: "16px" }}>
             <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                     <Typography variant="h5" fontWeight="bold">
@@ -75,11 +78,11 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
                     const isLast = index === pathnames.length - 1;
                     const translatedName = translate(breadcrumbNameMap[routeTo]) || translate(value) || value;
                     return isLast ? (
-                        <Typography key={routeTo} color="#000000">
+                        <Typography key={routeTo} color="#000" >
                             {translatedName}
                         </Typography>
                     ) : (
-                        <Link key={routeTo} color="#000000" href={routeTo}>
+                        <Link key={routeTo} color="#000" href={routeTo} underline="hover">
                             {translatedName}
                         </Link>
                     );

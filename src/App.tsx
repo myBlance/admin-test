@@ -13,6 +13,7 @@ import { PostEdit } from "./post/postEdit";
 import { UserEdit } from "./user/userEdit";
 import { darkTheme } from "./theme/darkTheme";
 import { lightTheme } from "./theme/lightTheme";
+import { UserCreate } from "./user/userCreate";
 
 export const App = () => (
   <Admin  authProvider={authProvider} 
@@ -35,6 +36,7 @@ export const App = () => (
         name="users" 
         list={UserList} 
         edit={UserEdit}  
+        create={UserCreate}
         icon={UserIcon}
         options={{ label: "Người dùng" }}
       />

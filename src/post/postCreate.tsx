@@ -30,7 +30,7 @@ export const PostCreate = () => (
             }}
         >
             <SimpleForm sx={{pl:8, pr:70}}>
-                <NumberInput readOnly source="id" variant="outlined"/>
+                <NumberInput source="id" variant="outlined"/>
                 <TextInput source="userId" variant="outlined" />
                 <TextInput source="title" variant="outlined"/>
                 <TextInput source="body" multiline rows={5} variant="outlined"/>

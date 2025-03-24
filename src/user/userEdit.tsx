@@ -1,4 +1,4 @@
-import { Box, Card, CardHeader } from "@mui/material";
+import { Box, Card } from "@mui/material";
 import { DateTimeInput, Edit, SimpleForm, TextInput } from "react-admin";
 import { CustomAppBar } from "../appbar/CustomAppBar";
 import { redirect } from "react-router";
@@ -23,7 +23,6 @@ export const UserEdit = () => (
                 }}
         >
             <SimpleForm sx={{pl:8, pr:70}}>
-                <CardHeader title="Welcome to user page" />
                 <TextInput readOnly source="id" sx={{width: 200}} variant="outlined"/>
                 <TextInput source="name" variant="outlined"/>
                 <TextInput source="username" variant="outlined"/>
