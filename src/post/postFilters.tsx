@@ -1,4 +1,8 @@
-import { DateInput, SelectInput, TextInput } from "react-admin";
+import { 
+    DateInput, 
+    SelectInput, 
+    TextInput 
+} from "react-admin";
 
 export const postFilters = [
     <TextInput key="search" source="search" variant="outlined" alwaysOn sx={{ml:3, width:240}}/>,

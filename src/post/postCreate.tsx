@@ -7,7 +7,10 @@ import {
 } from "react-admin";
 import { CustomAppBar } from "../appbar/CustomAppBar";
 import CustomBreadcrumbs from "../Breadcrumbs";
-import { Box, Card } from "@mui/material";
+import { 
+    Box, 
+    Card 
+} from "@mui/material";
 import { redirect } from "react-router";
 
 export const PostCreate = () => (

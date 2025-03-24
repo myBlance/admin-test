@@ -14,7 +14,10 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import HomeIcon from "@mui/icons-material/Home";
 import PostIcon from "@mui/icons-material/Book";
 import UserIcon from "@mui/icons-material/Group";
-import { MenuItemLink, useTranslate } from "react-admin";
+import { 
+    MenuItemLink, 
+    useTranslate 
+} from "react-admin";
 
 export const MySidebar = () => {
     const [openUserMenu, setOpenUserMenu] = useState(false);

@@ -1,10 +1,13 @@
-import { Box, Card } from "@mui/material";
 import { 
-        DateTimeInput,
-        Edit, 
-        NumberInput, 
-        SimpleForm, 
-        TextInput 
+    Box, 
+    Card 
+} from "@mui/material";
+import { 
+    DateTimeInput,
+    Edit, 
+    NumberInput, 
+    SimpleForm, 
+    TextInput 
 } from "react-admin";
 import { CustomAppBar } from "../appbar/CustomAppBar";
 import CustomBreadcrumbs from "../Breadcrumbs";

@@ -1,5 +1,12 @@
 import React from "react";
-import { Breadcrumbs, Link, Typography, Box, IconButton, Button } from "@mui/material";
+import { 
+    Breadcrumbs,
+    Link,
+    Typography, 
+    Box, 
+    IconButton, 
+    Button 
+} from "@mui/material";
 import { Refresh as RefreshIcon } from "@mui/icons-material";
 import { useLocation } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
@@ -14,7 +21,6 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 const breadcrumbNameMap: Record<string, string> = {
     "/": "pages.home",
     "/posts": "pages.categories",
-    "/posts/categories":"pages.create",
     "/users": "pages.users",
 };
 
