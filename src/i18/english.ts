@@ -19,6 +19,7 @@ const englishMessages: TranslationMessages = {
         home: "Home",
         categories: "Category Management",
         users: "User List",
+        create:"Create",
     },
     
     ra: {
