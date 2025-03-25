@@ -36,7 +36,6 @@ export const App = () => (
         edit={PostEdit} 
         create={PostCreate}
         icon={PostIcon}
-        options={{ label: "Bài viết" }}
       />
       <Resource
         name="users" 
@@ -44,10 +43,9 @@ export const App = () => (
         edit={UserEdit}  
         create={UserCreate}
         icon={UserIcon}
-        options={{ label: "Người dùng" }}
       />
     </Admin>
-    
+
     <ReactQueryDevtools initialIsOpen={false} />
   </QueryClientProvider>
 );
