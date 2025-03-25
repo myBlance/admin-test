@@ -6,7 +6,7 @@ import {
 
 export const postFilters = [
     <TextInput key="search" source="search" variant="outlined" alwaysOn sx={{ml:3, width:240}}/>,
-    <DateInput key="created_at" source="created_at" variant="outlined" label="Ngày tạo" alwaysOn sx={{ width:230}}/>,
+    <DateInput key="created_at" source="created_at" variant="outlined"  alwaysOn sx={{ width:230}}/>,
     <SelectInput
         sx={{ width:200}}
         alwaysOn

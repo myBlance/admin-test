@@ -7,23 +7,29 @@ import PostIcon from "@mui/icons-material/Book";
 import UserIcon from "@mui/icons-material/Group";
 import { Dashboard } from './dashboard/Dashboard';
 import { authProvider } from './auth/authProvider';
-import { i18nProvider } from "./i18/i18nProvider";
+import { i18nProvider } from "./i18N/i18nProvider";
 import { PostCreate } from "./post/postCreate";
 import { PostEdit } from "./post/postEdit";
 import { UserEdit } from "./user/userEdit";
 import { darkTheme } from "./theme/darkTheme";
 import { lightTheme } from "./theme/lightTheme";
 import { UserCreate } from "./user/userCreate";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 export const App = () => (
-  <Admin  authProvider={authProvider} 
-          layout={Layout} 
-          dataProvider={dataProvider} 
-          dashboard={Dashboard} 
-          theme={lightTheme}
-          darkTheme={darkTheme}
-          i18nProvider={i18nProvider} 
-          >
+  <QueryClientProvider client={queryClient}>
+    <Admin 
+      authProvider={authProvider} 
+      layout={Layout} 
+      dataProvider={dataProvider} 
+      dashboard={Dashboard} 
+      theme={lightTheme}
+      darkTheme={darkTheme}
+      i18nProvider={i18nProvider} 
+    >
       <Resource
         name="posts" 
         list={PostList} 
@@ -40,5 +46,8 @@ export const App = () => (
         icon={UserIcon}
         options={{ label: "Người dùng" }}
       />
-  </Admin>
+    </Admin>
+    
+    <ReactQueryDevtools initialIsOpen={false} />
+  </QueryClientProvider>
 );

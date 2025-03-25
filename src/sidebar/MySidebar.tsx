@@ -42,12 +42,12 @@ export const MySidebar = () => {
                 <img src="/src/images/download.png" alt="mobifone" width={120} />
             </Box>
 
-            <List sx={{mt:2, mb:2,}}>     
+            <List>     
                 <MenuItemLink 
                     to="/" 
                     primaryText={translate("menu.home")}
                     leftIcon={<HomeIcon />} 
-                    sx={{ color: "#fff", 
+                    sx={{ color: "#fff",
                     "& .MuiListItemIcon-root": { color: "#fff"  },
                     "&:hover": { backgroundColor: "#3873d1"},borderRadius:3,
                     "&.RaMenuItemLink-active": {
@@ -74,6 +74,7 @@ export const MySidebar = () => {
                 <ListItemButton 
                     onClick={() => setOpenUserMenu(!openUserMenu)}
                     sx={{
+                        height: 37,
                         color: "#fff",
                         "& .MuiListItemIcon-root": { color: "#fff !important" },
                         "&:hover": { backgroundColor: "#3873d1"},borderRadius:3,

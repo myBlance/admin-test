@@ -1,9 +1,9 @@
 import {
-        Create, 
-        DateTimeInput, 
-        NumberInput, 
-        SimpleForm, 
-        TextInput 
+    Create, 
+    DateTimeInput, 
+    NumberInput, 
+    SimpleForm, 
+    TextInput 
 } from "react-admin";
 import { CustomAppBar } from "../appbar/CustomAppBar";
 import CustomBreadcrumbs from "../Breadcrumbs";
