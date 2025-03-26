@@ -34,31 +34,31 @@ export const CustomAppBar: FC<CustomAppBarProps> = memo(({ onToggleSidebar, user
     
     return (
         <HideOnScroll >
-                <Toolbar disableGutters variant={isXSmall ? "regular" : "dense"} sx={{borderBottom: "2px solid #ddd"}}>
-                    {onToggleSidebar ? (
-                        <IconButton onClick={onToggleSidebar} sx={{ color: "#000", marginRight: 2 }}>
-                            <MenuIcon />
-                        </IconButton>
-                    ) : (
-                        <SidebarToggleButton />
-                    )}
+            <Toolbar disableGutters variant={isXSmall ? "regular" : "dense"} sx={{borderBottom: "2px solid #ddd"}}>
+                {onToggleSidebar ? (
+                    <IconButton onClick={onToggleSidebar} sx={{ color: "#000", marginRight: 2 }}>
+                        <MenuIcon />
+                    </IconButton>
+                ) : (
+                    <SidebarToggleButton />
+                )}
 
-                    {/* Tiêu đề */}
-                    <TitlePortal />
+                {/* Tiêu đề */}
+                <TitlePortal />
 
-                    {/* Các chức năng bổ sung */}
-                    <div style={{ flexGrow: 1 }}></div>
-                    
-                    {darkTheme && <ToggleThemeButton />}
-                    <LoadingIndicator />
-                    <LocalesMenuButton languages={[
-                        { locale: 'en', name: 'EN' },
-                        { locale: 'vi', name: 'VI ' },
-                    ]} />
+                {/* Các chức năng bổ sung */}
+                <div style={{ flexGrow: 1 }}></div>
+                
+                {darkTheme && <ToggleThemeButton />}
+                <LoadingIndicator />
+                <LocalesMenuButton languages={[
+                    { locale: 'en', name: 'EN' },
+                    { locale: 'vi', name: 'VI ' },
+                ]} />
 
-                    {/* Menu người dùng */}
-                    {typeof userMenu === "boolean" ? (userMenu ? <UserMenu /> : null) : userMenu}
-                </Toolbar>
+                {/* Menu người dùng */}
+                {typeof userMenu === "boolean" ? (userMenu ? <UserMenu /> : null) : userMenu}
+            </Toolbar>
         </HideOnScroll>
     );
 });

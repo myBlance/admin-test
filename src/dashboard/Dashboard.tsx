@@ -15,7 +15,9 @@ export const Dashboard = () => (
             <CardHeader title="Welcome to the administration" />
             
             <CardContent>
-                <PieChartWithTinyLineChart />
+                <Box sx={{ height: 600, width:800, ml:-10 }} >
+                    <PieChartWithTinyLineChart />
+                </Box>
             </CardContent>
         </Box>
     </Card>

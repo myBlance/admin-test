@@ -36,13 +36,13 @@ const COLORS = [
 const RADIAN = Math.PI / 180;
 
 const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, index }: any) => {
-  if (index === undefined) return null;
-  const radius = outerRadius * 1.1;
-  const x = cx + radius * Math.cos(-midAngle * RADIAN);
-  const y = cy + radius * Math.sin(-midAngle * RADIAN);
+    if (index === undefined) return null;
+    const radius = outerRadius * 1.1;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
   return (
-    <text x={x} y={y} fill="black" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central" fontSize={12} fontWeight="bold">
+    <text x={x} y={y} fill="black" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central" fontSize={12} fontWeight="bold"  >
       {data[index].name}
     </text>
   );
@@ -51,45 +51,43 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, index }: any) =>
 const PieChartWithDynamicCircles: React.FC = () => {
   return (
     <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", position: "relative"}}>
-      <ResponsiveContainer width="80%" height={400}>
-        <PieChart>
-        
-          <Pie 
-            data={data} 
-            cx="50%" 
-            cy="50%" 
-            labelLine={false} 
-            label={renderCustomizedLabel} 
-            outerRadius={150} 
-            dataKey="value" 
-            stroke="#000" 
-            strokeWidth={1}
-          >
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-            ))}
-          </Pie>
+        <ResponsiveContainer width="80%" height={400}>
+            <PieChart>
+                <Pie 
+                    data={data} 
+                    cx="50%" 
+                    cy="50%" 
+                    labelLine={false} 
+                    label={renderCustomizedLabel} 
+                    outerRadius={150} 
+                    dataKey="value" 
+                    stroke="#000" 
+                    strokeWidth={1}
+                >
+                    {data.map((_entry, index) => (
+                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                    ))}
+                </Pie>
 
-          <svg width="100%" height="100%" style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none", zIndex: 20 }}>
-            <rect width="100%" height="100%" fill="rgba(255, 255, 255, 0.6)" />
-          </svg>
+                <svg width="100%" height="100%" style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none", zIndex: 20 }}>
+                    <rect width="100%" height="100%" fill="rgba(255, 255, 255, 0.6)" />
+                </svg>
 
-          <svg width="100%" height="100%" style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none", zIndex: 10 }}>
-            {dataCircle.map((circle, index) => (
-              <circle
-                key={index}
-                cx="50%"
-                cy="50%"
-                r={circle.value}
-                stroke={circle.color}
-                strokeWidth="2"
-                fill="none"
-              />
-            ))}
-          </svg>
-
-        </PieChart>
-      </ResponsiveContainer>
+                <svg width="100%" height="100%" style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none", zIndex: 10 }}>                                                                                                                            
+                    {dataCircle.map((circle, index) => (
+                    <circle
+                        key={index}
+                        cx="50%"
+                        cy="50%"
+                        r={circle.value}
+                        stroke={circle.color}
+                        strokeWidth="2"
+                        fill="none"
+                    />
+                    ))}
+                </svg>
+            </PieChart>
+        </ResponsiveContainer>
     </div>
   );
 };
