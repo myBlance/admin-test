@@ -21,18 +21,28 @@ const dataCircle = [
   { name: "Chi nhánh; Mobifone Tỉnh/Thành phố", value: 150, color: "black" },
 ];
 
-const COLORS = ["#fe0000", "#c46900", "#e6ff28", "#48ff42", "#00cffe", "#0045c4", "#8528ff", "#ff42d3", "#00fedc"];
+const COLORS = [
+  "#fe0000", 
+  "#c46900", 
+  "#e6ff28", 
+  "#48ff42", 
+  "#00cffe", 
+  "#0045c4", 
+  "#8528ff", 
+  "#ff42d3", 
+  "#00fedc"
+];
 
 const RADIAN = Math.PI / 180;
 
 const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, index }: any) => {
   if (index === undefined) return null;
-  const radius = outerRadius * 1.3;
+  const radius = outerRadius * 1.1;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
   return (
-    <text x={x} y={y} fill="black" textAnchor="middle" dominantBaseline="central" fontSize={12} fontWeight="bold">
+    <text x={x} y={y} fill="black" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central" fontSize={12} fontWeight="bold">
       {data[index].name}
     </text>
   );
@@ -77,6 +87,7 @@ const PieChartWithDynamicCircles: React.FC = () => {
               />
             ))}
           </svg>
+
         </PieChart>
       </ResponsiveContainer>
     </div>
