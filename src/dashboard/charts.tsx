@@ -40,11 +40,21 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, outerRadius, index }: any) =>
 
 const PieChartWithDynamicCircles: React.FC = () => {
   return (
-    <div style={{ width: "100%", height: 500, display: "flex", flexDirection: "column", alignItems: "center", position: "relative" }}>
+    <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", position: "relative"}}>
       <ResponsiveContainer width="80%" height={400}>
         <PieChart>
         
-          <Pie data={data} cx="50%" cy="50%" labelLine={false} label={renderCustomizedLabel} outerRadius={150} dataKey="value" >
+          <Pie 
+            data={data} 
+            cx="50%" 
+            cy="50%" 
+            labelLine={false} 
+            label={renderCustomizedLabel} 
+            outerRadius={150} 
+            dataKey="value" 
+            stroke="#000" 
+            strokeWidth={1}
+          >
             {data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
             ))}
@@ -54,7 +64,6 @@ const PieChartWithDynamicCircles: React.FC = () => {
             <rect width="100%" height="100%" fill="rgba(255, 255, 255, 0.6)" />
           </svg>
 
-          {/* Vẽ hình tròn dựa trên dữ liệu dataCircle */}
           <svg width="100%" height="100%" style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none", zIndex: 10 }}>
             {dataCircle.map((circle, index) => (
               <circle
