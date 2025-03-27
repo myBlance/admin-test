@@ -37,6 +37,16 @@ const vietnameseMessages: TranslationMessages = {
                 date:"Ngày",
             },
         },
+        todos: {
+            name: "Danh sách công việc",
+            fields: {
+                search: "Tìm kiếm",
+                id: "Mã ID",
+                userId: "Mã người dùng",
+                title: "Tiêu đề",
+                completed: "Hoàn thành",
+            },
+        },
     },
 
     menu: {
@@ -46,6 +56,7 @@ const vietnameseMessages: TranslationMessages = {
         users:"Danh sách người dùng",
         admin:"Quản trị viên",
         editor:"Biên tập viên",
+        todos : "Danh sách công việc",
     },
     buttons: {
         add: "Thêm",
@@ -57,6 +68,7 @@ const vietnameseMessages: TranslationMessages = {
         categories: "Quản lý danh mục",
         create:"Tạo mới",
         users: "Danh sách người dùng",
+        todos: "Danh sách công việc",
     },
     ra: {    
         action: {

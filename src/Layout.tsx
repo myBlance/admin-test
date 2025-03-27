@@ -7,13 +7,17 @@ import { Box } from "@mui/material";
 export const Layout = ({ children }: { children: ReactNode }) => (
   
   <RALayout menu={MySidebar} appBar={EmptyAppBar} sx={{ "& .RaLayout-content": { paddingTop: 0 } }}   >
-     <Box sx={{ padding: "16px", }}>
-      {children && (
-        <Box>
-          {children}
+        <Box sx={{ 
+            pt:"16px",
+            pr:"16px",
+            pb:"16px",
+        }}>
+            {children && (
+                <Box>
+                    {children}
+                </Box>
+            )}
+            <CheckForApplicationUpdate />
         </Box>
-      )}
-      <CheckForApplicationUpdate />
-    </Box>
   </RALayout>
 );

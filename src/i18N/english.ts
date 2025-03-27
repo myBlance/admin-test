@@ -5,10 +5,11 @@ const englishMessages: TranslationMessages = {
     menu: {
         categories: "Category Management",
         home:"Home",
-        management:"User management",
-        users:"User list",
+        management:"User Management",
+        users:"User List",
         admin:"Admin",
         editor:"Editor",
+        todos: "Todo List",
     },
     buttons: {
         add: "Add",
@@ -20,6 +21,7 @@ const englishMessages: TranslationMessages = {
         categories: "Category Management",
         users: "User List",
         create:"Create",
+        todos: "Todo List",
     },
     
     ra: {

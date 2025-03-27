@@ -24,6 +24,7 @@ const breadcrumbNameMap: Record<string, string> = {
     "/posts/create": "pages.create",
     "/users": "pages.users",
     "/users/create": "pages.create",
+    "/todos": "pages.todos",
 };
 
 interface CustomBreadcrumbsProps {
@@ -36,7 +37,7 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
     const translate = useTranslate();
     const pathnames = location.pathname.split("/").filter((x) => x);
     const lastPath = `/${pathnames.join("/")}`;
-    const pageTitle = breadcrumbNameMap[lastPath] || "Trang";
+    const pageTitle = breadcrumbNameMap[lastPath] || pathnames[pathnames.length - 1];
     
 
     return (

@@ -13,6 +13,7 @@ import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import HomeIcon from "@mui/icons-material/Home";
 import PostIcon from "@mui/icons-material/Book";
+import EventIcon from '@mui/icons-material/Event';
 import UserIcon from "@mui/icons-material/Group";
 import { 
     MenuItemLink, 
@@ -86,6 +87,7 @@ export const MySidebar = () => {
                 >
                     <ListItemIcon sx={{ color: "#fff !important" }}>
                         <UserIcon />
+
                     </ListItemIcon>
                     <ListItemText
                         primary={translate("menu.management")}
@@ -147,10 +149,23 @@ export const MySidebar = () => {
                         />
                     </List>
                 </Collapse>
+                <MenuItemLink 
+                    to="/todos" 
+                    primaryText={translate("menu.todos")}
+                    leftIcon={<EventIcon/>} 
+                    sx={{ color: "#fff", 
+                    "& .MuiListItemIcon-root": { color: "#fff" },
+                    "&:hover": { backgroundColor: "#3873d1"},borderRadius:3,
+                    "&.RaMenuItemLink-active": {
+                        backgroundColor: "#3873d1",  
+                        color: "#fff",               
+                    }
+                 }} 
+                />
             </List>
 
             {/* Phiên bản */}
-            <Box sx={{ position: "absolute", bottom: 100, left: 60 }}>
+            <Box sx={{ position: "absolute", bottom: 100, left: 60, }}>
                 <Typography variant="caption" color="#fff">
                     Version: 20241227.0
                 </Typography>

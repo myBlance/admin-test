@@ -16,6 +16,9 @@ import { lightTheme } from "./theme/lightTheme";
 import { UserCreate } from "./user/userCreate";
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { TodoList } from './todos/todos';
+import EventIcon from '@mui/icons-material/Event';
+
 
 const queryClient = new QueryClient();
 
@@ -43,6 +46,12 @@ export const App = () => (
         edit={UserEdit}  
         create={UserCreate}
         icon={UserIcon}
+      />
+      <Resource
+        name="todos" 
+        list={TodoList} 
+        icon={EventIcon}
+        
       />
     </Admin>
 
