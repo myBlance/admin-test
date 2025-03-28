@@ -1,6 +1,11 @@
 import { TranslationMessages } from 'ra-core';
 
 const englishMessages: TranslationMessages = {
+    resources: {
+        todos: {
+            detail: "Todo Details",
+        },
+    },
 
     menu: {
         categories: "Category Management",

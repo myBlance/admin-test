@@ -46,6 +46,7 @@ const vietnameseMessages: TranslationMessages = {
                 title: "Tiêu đề",
                 completed: "Hoàn thành",
             },
+            detail: "Chi tiết công việc",
         },
     },
 

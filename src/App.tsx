@@ -18,6 +18,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TodoList } from './todos/todos';
 import EventIcon from '@mui/icons-material/Event';
+import { TodoEdit } from "./todos/todoEdit";
 
 
 const queryClient = new QueryClient();
@@ -51,6 +52,7 @@ export const App = () => (
         name="todos" 
         list={TodoList} 
         icon={EventIcon}
+        edit={TodoEdit}
         
       />
     </Admin>
