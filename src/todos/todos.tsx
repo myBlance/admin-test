@@ -15,7 +15,7 @@ import {
 import { CustomAppBar } from '../appbar/CustomAppBar';
 import CustomBreadcrumbs from '../Breadcrumbs';
 import { todoFilters } from './todoFilters';
-import { TodoEdit } from './todoEdit'; // Adjust the path if necessary
+import { TodoEdit } from './todoEdit';
 import { useState, useCallback } from 'react';
 
 export const TodoList = () => {

@@ -1,6 +1,6 @@
 import { Admin, Resource } from "react-admin";
 import { Layout } from "./Layout";
-import { dataProvider } from "./data/dataProvider";
+import  dataProvider  from "./data/dataProvider";
 import {  PostList } from "./post/posts";
 import {  UserList } from "./user/users";
 import PostIcon from "@mui/icons-material/Book";
@@ -20,41 +20,52 @@ import { TodoList } from './todos/todos';
 import EventIcon from '@mui/icons-material/Event';
 import { TodoEdit } from "./todos/todoEdit";
 
-
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            staleTime: 10000,
+            retry: false,
+            refetchOnWindowFocus: false,
+            // structuralSharing: false,
+        },
+        mutations: {
+            retryDelay: 10000,
+        },
+    },
+});
 
 export const App = () => (
   <QueryClientProvider client={queryClient}>
-    <Admin 
-      authProvider={authProvider} 
-      layout={Layout} 
-      dataProvider={dataProvider} 
-      dashboard={Dashboard} 
-      theme={lightTheme}
-      darkTheme={darkTheme}
-      i18nProvider={i18nProvider} 
-    >
-      <Resource
-        name="posts" 
-        list={PostList} 
-        edit={PostEdit} 
-        create={PostCreate}
-        icon={PostIcon}
-      />
-      <Resource
-        name="users" 
-        list={UserList} 
-        edit={UserEdit}  
-        create={UserCreate}
-        icon={UserIcon}
-      />
-      <Resource
-        name="todos" 
-        list={TodoList} 
-        icon={EventIcon}
-        edit={TodoEdit}
-        
-      />
+        <Admin 
+            queryClient={queryClient}
+            authProvider={authProvider} 
+            layout={Layout} 
+            dataProvider={dataProvider} 
+            dashboard={Dashboard} 
+            theme={lightTheme}
+            darkTheme={darkTheme}
+            i18nProvider={i18nProvider} 
+        >
+        <Resource
+            name="posts" 
+            list={PostList} 
+            edit={PostEdit} 
+            create={PostCreate}
+            icon={PostIcon}
+        />
+        <Resource
+            name="users" 
+            list={UserList} 
+            edit={UserEdit}  
+            create={UserCreate}
+            icon={UserIcon}
+        />
+        <Resource
+            name="todos" 
+            list={TodoList} 
+            icon={EventIcon}
+            edit={TodoEdit}     
+        />
     </Admin>
 
     <ReactQueryDevtools initialIsOpen={false} />
