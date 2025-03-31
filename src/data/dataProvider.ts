@@ -12,7 +12,18 @@ const dataProvider: DataProvider = {
 
     getList: async (resource, params) => {
         const { page, perPage } = params.pagination || { page: 1, perPage: 10 };
-        const url = `${apiUrl}/${resource}?_page=${page}&_limit=${perPage}`;
+        const { filter } = params;
+
+        // Chuyển object filter thành query string
+        const filterQuery = filter
+            ? Object.keys(filter)
+                  .map((key) => `${key}=${encodeURIComponent(filter[key])}`)
+                  .join("&")
+            : "";
+
+        const url = `${apiUrl}/${resource}?_page=${page}&_limit=${perPage}${
+            filterQuery ? `&${filterQuery}` : ""
+        }`;
 
         const response = await httpClient(url);
         const total = response.headers.get("x-total-count") || 100; // Giá trị mặc định nếu thiếu

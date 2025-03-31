@@ -29,7 +29,10 @@ export const PostList = () => {
                     onCreate={() => redirect('/posts/create')}                    
                 />
             </Box>
-            <List filters={postFilters} actions={<></>} queryOptions={{ staleTime: 60000 }}
+            <List 
+                filters={postFilters} 
+                actions={<></>} 
+                queryOptions={{ staleTime: 60000 }}
                 sx={{
                     border: "2px solid #ddd",
                     borderRadius:"20px",
