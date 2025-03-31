@@ -76,7 +76,7 @@ const PieChartWithDynamicCircles: React.FC = () => {
                     </Pie>
 
                     <svg width="100%" height="100%" style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none", zIndex: 20 }}>
-                        <rect width="100%" height="100%" fill="rgba(255, 255, 255, 0.6)" />
+                        <circle cx="50%" cy="50%" r="150" fill="rgba(255, 255, 255, 0.6)" />
                     </svg>
 
                     <svg width="100%" height="100%" style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none", zIndex: 10 }}>                                                                                                                            

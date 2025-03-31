@@ -20,6 +20,7 @@ export const Dashboard = () => (
                     width: 800, 
                     ml: 5, 
                     border: "2px solid #000", 
+                    backgroundColor: "#fff",
                     borderRadius: 3, 
                     boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.25)" 
                 }}>
