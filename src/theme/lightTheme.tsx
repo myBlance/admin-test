@@ -4,8 +4,12 @@ import { deepmerge } from "@mui/utils";
 export const lightTheme = deepmerge(defaultLightTheme, {
     palette: {
         mode: 'light',
-        primary: { main: "#3280c0" },  
-        secondary: { main: "#f48fb1" }, 
+        primary: {
+            main: "#3280c0" 
+        },  
+        secondary: {
+            main: "#f48fb1" 
+        }, 
         background: {
             default: "#000", 
             paper: "#ffffff",   
@@ -14,8 +18,8 @@ export const lightTheme = deepmerge(defaultLightTheme, {
             primary: "#000000", 
         }
     },
-    components: {
-        
+
+    components: {    
        MuiInputBase: {
             styleOverrides: {
                 root: {
@@ -26,8 +30,6 @@ export const lightTheme = deepmerge(defaultLightTheme, {
                 }
             }
           },
-
-       
         MuiButton: {
             styleOverrides: {
                 root: {
@@ -47,7 +49,7 @@ export const lightTheme = deepmerge(defaultLightTheme, {
                 input: {
                     colors:"#000",
                     "&::placeholder": {
-                        color: "#bbbbbb", // Màu placeholder
+                        color: "#bbbbbb",
                         opacity: 1, 
                     },
                 },
@@ -61,27 +63,26 @@ export const lightTheme = deepmerge(defaultLightTheme, {
             },
         },  
         MuiTableCell: {
-          styleOverrides: {
-              root: {
-                  color: "#000000", 
-              },
-              head: {
-                  color: "#000000", 
-                  fontWeight: "bold",
-              },
-          },
-      },
-      MuiTablePagination: {
-          styleOverrides: {
-              root: {
-                  color: "#000000",
-                  fontWeight: "bold",
-              },
-              selectIcon: {
-                  color: "#000000", 
-              },
-          },
-      },
-      
+            styleOverrides: {
+                root: {
+                    color: "#000000", 
+                },
+                head: {
+                    color: "#000000", 
+                    fontWeight: "bold",
+                },
+            },
+        },
+        MuiTablePagination: {
+            styleOverrides: {
+                root: {
+                    color: "#000000",
+                    fontWeight: "bold",
+                },
+                selectIcon: {
+                    color: "#000000", 
+                },
+            },
+        },   
     },
-  });
+});

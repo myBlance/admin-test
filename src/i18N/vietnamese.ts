@@ -11,7 +11,7 @@ const vietnameseMessages: TranslationMessages = {
                 body: "Nội dung",
                 date: "Ngày",
                 category: "Danh mục sản phẩm",
-                unit: "Đơn vi",
+                unit: "Đơn vị",
                 search: "Tìm kiếm",
                 status:"Trạng thái",
                 created_at:"Ngày tạo",

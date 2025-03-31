@@ -1,7 +1,7 @@
 import { DataProvider, fetchUtils } from "react-admin";
 import simpleRestProvider from "ra-data-simple-rest";
 
-const apiUrl = "https://jsonplaceholder.typicode.com"; // API của bạn
+const apiUrl = import.meta.env.VITE_JSON_SERVER_URL || "http://localhost:3000"; // API
 const httpClient = fetchUtils.fetchJson;
 
 const customDataProvider = simpleRestProvider(apiUrl, httpClient) as DataProvider;
