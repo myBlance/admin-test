@@ -12,6 +12,7 @@ import {
     TextField
 } from "@mui/material";
 import { useTranslate } from "react-admin";
+import  JsonFileInput from "./inputJson";
 
 interface UpdateStepperDialogProps {
     open: boolean;
@@ -25,6 +26,7 @@ const UpdateStepperDialog: React.FC<UpdateStepperDialogProps> = ({ open, onClose
     const translate = useTranslate();
     const [activeStep, setActiveStep] = useState(0);
     const [formData, setFormData] = useState({
+        jsonData: null,
         name: "",
         email: "",
         phone: ""
@@ -43,14 +45,14 @@ const UpdateStepperDialog: React.FC<UpdateStepperDialogProps> = ({ open, onClose
         setActiveStep((prev) => prev - 1);
     };
 
-    const handleChange = (field: keyof typeof formData, value: string) => {
-        setFormData({ ...formData, [field]: value });
+    const handleChange = (field: keyof typeof formData, value: any) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
     };
 
     const handleClose = () => {
         onClose();
         setActiveStep(0);
-        setFormData({ name: "", email: "", phone: "" });
+        setFormData({ jsonData: null, name: "", email: "", phone: "" });
     };
 
     return (
@@ -67,13 +69,19 @@ const UpdateStepperDialog: React.FC<UpdateStepperDialogProps> = ({ open, onClose
 
                 <Box sx={{ mt: 3 }}>
                     {activeStep === 0 && (
-                        <TextField
+                        <>
+                            <TextField
                             label="Tên"
                             fullWidth
                             value={formData.name}
                             onChange={(e) => handleChange("name", e.target.value)}
                             sx={{ mb: 2 }}
                         />
+                            <JsonFileInput
+                                initialData={formData.jsonData} // giữ dữ liệu khi back lại
+                                onLoad={(data: any) => handleChange("jsonData", data)}
+                            />
+                        </>
                     )}
 
                     {activeStep === 1 && (
@@ -102,6 +110,14 @@ const UpdateStepperDialog: React.FC<UpdateStepperDialogProps> = ({ open, onClose
                                 <p><strong>Tên:</strong> {formData.name}</p>
                                 <p><strong>Email:</strong> {formData.email}</p>
                                 <p><strong>Số điện thoại:</strong> {formData.phone}</p>
+                                {formData.jsonData && (
+                                    <>
+                                        <p><strong>Dữ liệu JSON:</strong></p>
+                                        <pre style={{ background: "#f5f5f5", padding: "10px" }}>
+                                            {JSON.stringify(formData.jsonData, null, 2)}
+                                        </pre>
+                                    </>
+                                )}
                             </Box>
                         </Box>
                     )}
