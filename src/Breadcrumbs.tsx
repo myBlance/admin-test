@@ -1,23 +1,21 @@
-import React from "react";
-import { 
+import React, { useState } from "react";
+import {
     Breadcrumbs,
     Link,
-    Typography, 
-    Box, 
-    IconButton, 
-    Button 
+    Typography,
+    Box,
+    IconButton,
+    Button
 } from "@mui/material";
 import { Refresh as RefreshIcon } from "@mui/icons-material";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link as RouterLink } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import AddIcon from "@mui/icons-material/Add";
 import DownloadIcon from "@mui/icons-material/Download";
 import UpgradeIcon from '@mui/icons-material/Upgrade';
-import { 
-    SelectColumnsButton, 
-    useTranslate 
-} from "react-admin";
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import { SelectColumnsButton, useTranslate } from "react-admin";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import MultiStepModal from "./post/ModalStep"; // import modal nhiều bước
 
 const breadcrumbNameMap: Record<string, string> = {
     "/": "pages.home",
@@ -29,9 +27,9 @@ const breadcrumbNameMap: Record<string, string> = {
 };
 
 interface CustomBreadcrumbsProps {
-    onCreate?: () => void; 
-    onUpload?: () => void; 
-    onUpdate?: () => void; 
+    onCreate?: () => void;
+    onUpload?: () => void;
+    onUpdate?: () => void;
 }
 
 const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUpload, onUpdate }) => {
@@ -39,8 +37,10 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
     const translate = useTranslate();
     const pathnames = location.pathname.split("/").filter((x) => x);
     const lastPath = `/${pathnames.join("/")}`;
-    const pageTitle = breadcrumbNameMap[lastPath] || pathnames[pathnames.length - 1];
-    
+    const pageTitle = breadcrumbNameMap[lastPath] ?? pathnames[pathnames.length - 1] ?? "";
+
+    // State mở modal nhiều bước
+    const [openModal, setOpenModal] = useState(false);
 
     return (
         <Box sx={{ padding: "16px" }}>
@@ -53,65 +53,72 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
                         <RefreshIcon />
                     </IconButton>
                 </Box>
-                <Box sx={{marginTop:2}}>
-                    <SelectColumnsButton/>
+                <Box sx={{ marginTop: 2 }}>
+                    <SelectColumnsButton />
                     {onUpdate && (
                         <Button
                             variant="contained"
                             startIcon={<UpgradeIcon />}
-                            onClick={onUpdate}
-                            sx={{ 
-                                marginRight: 1, marginLeft: 1, backgroundColor: "#1c79dc", color: "#fff" ,
-                                borderRadius: "8px",
+                            onClick={() => setOpenModal(true)} // mở modal
+                            sx={{
+                                marginRight: 1,
+                                marginLeft: 1,
+                                backgroundColor: "#1c79dc",
+                                color: "#fff",
+                                borderRadius: "8px"
                             }}
                         >
                             {translate("buttons.update")}
                         </Button>
                     )}
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        startIcon={<AddIcon />}
-                        onClick={onCreate}
-                        sx={{ marginRight: 1, color:"#fff", backgroundColor:"#0052a9",  }}
-                    >
-                        {translate("buttons.add")}
-                    </Button>
+                    {onCreate && (
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            startIcon={<AddIcon />}
+                            onClick={onCreate}
+                            sx={{ marginRight: 1, color: "#fff", backgroundColor: "#0052a9" }}
+                        >
+                            {translate("buttons.add")}
+                        </Button>
+                    )}
                     <Button
                         variant="contained"
                         color="primary"
                         startIcon={<DownloadIcon />}
-                        onClick={onUpload}
-                        sx={{color:"#fff", backgroundColor:"#0052a9"}}
+                        sx={{ color: "#fff", backgroundColor: "#0052a9" }}
                     >
                         {translate("buttons.upload")}
                     </Button>
                 </Box>
             </Box>
 
-            <Breadcrumbs 
-                    separator={<NavigateNextIcon fontSize="small" />} 
-                    aria-label="breadcrumb" 
-                    sx={{ marginTop: "4px" }}
+            <Breadcrumbs
+                separator={<NavigateNextIcon fontSize="small" />}
+                aria-label="breadcrumb"
+                sx={{ marginTop: "4px" }}
             >
-                <Link color="inherit" href="/" sx={{ display: "flex", alignItems: "center" }}>
+                <Link component={RouterLink} to="/" color="inherit" sx={{ display: "flex", alignItems: "center" }}>
                     <HomeIcon />
                 </Link>
                 {pathnames.map((value, index) => {
                     const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
                     const isLast = index === pathnames.length - 1;
-                    const translatedName = translate(breadcrumbNameMap[routeTo]) || translate(value) || value;
+                    const translatedName = translate(breadcrumbNameMap[routeTo] ?? value);
                     return isLast ? (
-                        <Typography key={routeTo} color="#000" >
+                        <Typography key={routeTo} color="#000">
                             {translatedName}
                         </Typography>
                     ) : (
-                        <Link key={routeTo} color="#000" href={routeTo} underline="hover">
+                        <Link key={routeTo} component={RouterLink} to={routeTo} underline="hover" color="#000">
                             {translatedName}
                         </Link>
                     );
                 })}
             </Breadcrumbs>
+
+            {/* Modal nhiều bước */}
+            <MultiStepModal open={openModal} onClose={() => setOpenModal(false)} />
         </Box>
     );
 };

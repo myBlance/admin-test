@@ -61,6 +61,7 @@ const vietnameseMessages: TranslationMessages = {
     },
     buttons: {
         add: "Thêm",
+        update: "Cập nhật",
         upload: "Tải lên",
         filter: "Bộ lọc",
     },
