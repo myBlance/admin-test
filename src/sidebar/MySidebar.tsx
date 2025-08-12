@@ -19,6 +19,7 @@ import {
     MenuItemLink, 
     useTranslate 
 } from "react-admin";
+import TheatersIcon from '@mui/icons-material/Theaters';
 
 export const MySidebar = () => {
     const [openUserMenu, setOpenUserMenu] = useState(false);
@@ -153,6 +154,19 @@ export const MySidebar = () => {
                     to="/todos" 
                     primaryText={translate("menu.todos")}
                     leftIcon={<EventIcon/>} 
+                    sx={{ color: "#fff", 
+                    "& .MuiListItemIcon-root": { color: "#fff" },
+                    "&:hover": { backgroundColor: "#3873d1"},borderRadius:3,
+                    "&.RaMenuItemLink-active": {
+                        backgroundColor: "#3873d1",  
+                        color: "#fff",               
+                    }
+                 }} 
+                />
+                <MenuItemLink 
+                    to="/films" 
+                    primaryText={translate("menu.films")}
+                    leftIcon={<TheatersIcon/>} 
                     sx={{ color: "#fff", 
                     "& .MuiListItemIcon-root": { color: "#fff" },
                     "&:hover": { backgroundColor: "#3873d1"},borderRadius:3,

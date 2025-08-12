@@ -12,6 +12,7 @@ import { useLocation } from "react-router-dom";
 import HomeIcon from "@mui/icons-material/Home";
 import AddIcon from "@mui/icons-material/Add";
 import DownloadIcon from "@mui/icons-material/Download";
+import UpgradeIcon from '@mui/icons-material/Upgrade';
 import { 
     SelectColumnsButton, 
     useTranslate 
@@ -30,9 +31,10 @@ const breadcrumbNameMap: Record<string, string> = {
 interface CustomBreadcrumbsProps {
     onCreate?: () => void; 
     onUpload?: () => void; 
+    onUpdate?: () => void; 
 }
 
-const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUpload }) => {
+const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUpload, onUpdate }) => {
     const location = useLocation();
     const translate = useTranslate();
     const pathnames = location.pathname.split("/").filter((x) => x);
@@ -53,6 +55,19 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
                 </Box>
                 <Box sx={{marginTop:2}}>
                     <SelectColumnsButton/>
+                    {onUpdate && (
+                        <Button
+                            variant="contained"
+                            startIcon={<UpgradeIcon />}
+                            onClick={onUpdate}
+                            sx={{ 
+                                marginRight: 1, marginLeft: 1, backgroundColor: "#1c79dc", color: "#fff" ,
+                                borderRadius: "8px",
+                            }}
+                        >
+                            {translate("buttons.update")}
+                        </Button>
+                    )}
                     <Button
                         variant="contained"
                         color="primary"

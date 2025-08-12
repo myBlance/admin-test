@@ -19,6 +19,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { TodoList } from './todos/todos';
 import EventIcon from '@mui/icons-material/Event';
 import { TodoEdit } from "./todos/todoEdit";
+import TheatersIcon from '@mui/icons-material/Theaters';
+import { FilmList } from "./filmList/film";
+import { FilmEdit }from "./filmList/filmEdit";
+import { FilmCreate } from "./filmList/filmCreate";
 
 const queryClient = new QueryClient({
     defaultOptions: {
@@ -65,6 +69,13 @@ export const App = () => (
             list={TodoList} 
             icon={EventIcon}
             edit={TodoEdit}     
+        />
+        <Resource
+            name="films" 
+            list={FilmList} 
+            icon={TheatersIcon}
+            edit={FilmEdit} 
+            create={FilmCreate}    
         />
     </Admin>
 

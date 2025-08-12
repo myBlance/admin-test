@@ -26,6 +26,7 @@ export const PostList = () => {
             <Box sx={{ padding: 2 }}>
                 <CustomAppBar />
                 <CustomBreadcrumbs 
+                    onUpdate={() => redirect }
                     onCreate={() => redirect('/posts/create')}                    
                 />
             </Box>
