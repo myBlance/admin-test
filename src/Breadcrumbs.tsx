@@ -15,7 +15,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 import UpgradeIcon from '@mui/icons-material/Upgrade';
 import { SelectColumnsButton, useTranslate } from "react-admin";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import MultiStepModal from "./post/ModalStep"; // import modal nhiều bước
+import UpdateStepperDialog from './post/UpdateStepperDialog';
 
 const breadcrumbNameMap: Record<string, string> = {
     "/": "pages.home",
@@ -39,8 +39,8 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
     const lastPath = `/${pathnames.join("/")}`;
     const pageTitle = breadcrumbNameMap[lastPath] ?? pathnames[pathnames.length - 1] ?? "";
 
-    // State mở modal nhiều bước
-    const [openModal, setOpenModal] = useState(false);
+    // State mở popup upload
+    const [openUpdateDialog, setOpenUpdateDialog] = useState(false);
 
     return (
         <Box sx={{ padding: "16px" }}>
@@ -59,7 +59,8 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
                         <Button
                             variant="contained"
                             startIcon={<UpgradeIcon />}
-                            onClick={() => setOpenModal(true)} // mở modal
+                            onClick={() => setOpenUpdateDialog(true)}
+                            
                             sx={{
                                 marginRight: 1,
                                 marginLeft: 1,
@@ -86,6 +87,7 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
                         variant="contained"
                         color="primary"
                         startIcon={<DownloadIcon />}
+                        onClick={onUpload}
                         sx={{ color: "#fff", backgroundColor: "#0052a9" }}
                     >
                         {translate("buttons.upload")}
@@ -117,8 +119,12 @@ const CustomBreadcrumbs: React.FC<CustomBreadcrumbsProps> = ({ onCreate, onUploa
                 })}
             </Breadcrumbs>
 
-            {/* Modal nhiều bước */}
-            <MultiStepModal open={openModal} onClose={() => setOpenModal(false)} />
+            {/* Popup 3 step */}
+            <UpdateStepperDialog
+                open={openUpdateDialog}
+                onClose={() => setOpenUpdateDialog(false)}
+                onFinish={onUpload}
+            />
         </Box>
     );
 };

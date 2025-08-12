@@ -64,6 +64,10 @@ const vietnameseMessages: TranslationMessages = {
         update: "Cập nhật",
         upload: "Tải lên",
         filter: "Bộ lọc",
+        next: 'Tiếp theo',
+        back: 'Quay lại',
+        cancel: 'Hủy',
+        confirm: 'Xác nhận',
     },
     pages: {
         home: "Trang chủ",
