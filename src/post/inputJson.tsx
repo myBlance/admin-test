@@ -42,10 +42,13 @@ export default function JsonFileInput({ onLoad, initialData }: JsonFileInputProp
         onLoad(null);
     };
 
+
+    
     return (
         <div>
             <label>
-                Chọn file JSON:
+                Chọn file JSON
+                <br />
                 <input type="file" accept=".json" onChange={handleFileChange} />
             </label>
 
