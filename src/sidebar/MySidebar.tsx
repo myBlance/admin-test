@@ -165,7 +165,7 @@ export const MySidebar = () => {
                 />
                 <MenuItemLink 
                     to="/films" 
-                    primaryText={translate("menu.films")}
+                    primaryText='menu.films'
                     leftIcon={<TheatersIcon/>} 
                     sx={{ color: "#fff", 
                     "& .MuiListItemIcon-root": { color: "#fff" },
