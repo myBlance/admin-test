@@ -5,6 +5,13 @@ import api from "../services/api";
 const COLORS = ["#0035e5", "#2870ff", "#6db5dc", "#ca543f"];
 const RADIAN = Math.PI / 180;
 
+const STATUS_MAP: Record<number, string> = {
+    0: "Mới",
+    1: "Đã kích hoạt",
+    2: "Đang hoạt động",
+    3: "Không hoạt động",
+};
+
 const renderCustomizedLabel = ({
     cx,
     cy,
@@ -35,24 +42,23 @@ export default function StatusPieChart() {
     const [data, setData] = useState<any[]>([]);
     const [cordId, setCordId] = useState<string | null>(null);
 
+  // Lấy cordId
     useEffect(() => {
         const fetchCordId = async () => {
             try {
-                const res = await api.get("/api/Accounts/GetCorByUser", {
+                const res = await api.get<{
+                    data?: {
+                        pagedData?: { id?: string | null }[];
+                    };
+                }>("/api/Accounts/GetCorByUser", {
                     headers: { Accept: "application/json" },
                 });
 
                 console.log("CordId API Response:", res.data);
 
                 let id: string | null = null;
-
-                // Kiểm tra dữ liệu trả về
-                if (res.data && typeof res.data === "object" && "data" in res.data) {
-                    const dataObj = res.data.data ?? {};
-                    const pagedData = Array.isArray((dataObj as any).pagedData) ? (dataObj as any).pagedData : [];
-                    if (pagedData.length > 0 && "id" in pagedData[0]) {
-                        id = pagedData[0].id;
-                    }
+                if (res.data && res.data.data?.pagedData?.length && res.data.data.pagedData.length > 0) {
+                    id = res.data.data.pagedData[0].id ?? null;
                 }
 
                 setCordId(id);
@@ -64,52 +70,45 @@ export default function StatusPieChart() {
         fetchCordId();
     }, []);
 
+  //  Lấy danh sách thiết bị theo cordId và status
     useEffect(() => {
         if (!cordId) return;
 
-        const fetchData = async () => {
+        const fetchDevices = async () => {
             try {
-                const res = await api.get("/api/Dashboards/GetTopDevicesByCordId", {
-                    params: {
-                        id: cordId,
-                        FromAt: "2025-09-01T00:00:00Z",
-                        ToAt: "2025-09-24T23:59:59Z",
-                    },
-                    headers: {
-                        Accept: "application/json",
-                    },
+                const res = await api.get("/api/Devices/GetAllDevicebyCorId", {
+                    params: { id: cordId },
+                    headers: { Accept: "application/json" },
                 });
 
-                console.log("TopDevices API Response:", res.data);
+                console.log("Devices API Response:", res.data);
 
-                let dataArray: any[] = [];
+                const devicesData = (res.data as { data?: any[] })?.data;
+                if (Array.isArray(devicesData)) {
+                const devices = devicesData;
 
-                if (
-                    res.data &&
-                    typeof res.data === "object" &&
-                    "data" in res.data &&
-                    res.data.data &&
-                    typeof res.data.data === "object" &&
-                    "pagedData" in res.data.data &&
-                    Array.isArray((res.data.data as { pagedData?: any[] }).pagedData)
-                ) {
-                    dataArray = (res.data.data as { pagedData: any[] }).pagedData;
-                }
+                // Đếm số lượng theo status
+                const statusCount: Record<number, number> = {};
+                devices.forEach((device: any) => {
+                    const st = device.status ?? 0;
+                    statusCount[st] = (statusCount[st] || 0) + 1;
+                });
 
-                const transformed = dataArray.map((item: any) => ({
-                    name: item.statusName || "Unknown",
-                    value: item.count || 0,
+                // Chuyển sang PieChart
+                const chartData = Object.entries(statusCount).map(([key, value]) => ({
+                    name: STATUS_MAP[Number(key)] || `Status ${key}`,
+                    value,
                 }));
 
-                setData(transformed);
+                setData(chartData);
+                }
             } catch (err) {
-                console.error("Error fetching top devices", err);
+                console.error("Error fetching devices", err);
             }
         };
 
-        fetchData();
+        fetchDevices();
     }, [cordId]);
-
 
     return (
         <div style={{ width: "100%", height: 350 }}>
@@ -119,8 +118,8 @@ export default function StatusPieChart() {
                         data={data}
                         cx="50%"
                         cy="50%"
-                        startAngle={235}   //  bắt đầu từ hướng 12 giờ
-                        endAngle={-270}    //  quay ngược chiều kim đồng hồ
+                        startAngle={235}
+                        endAngle={-270}
                         labelLine={false}
                         label={renderCustomizedLabel}
                         outerRadius={130}
@@ -128,33 +127,36 @@ export default function StatusPieChart() {
                         stroke="none"
                     >
                         {data.map((entry, index) => (
-                        <Cell
-                            key={`cell-${entry.name}`}
-                            fill={COLORS[index % COLORS.length]}
-                        />
+                            <Cell
+                                key={`cell-${entry.name}`}
+                                fill={COLORS[index % COLORS.length]}
+                            />
                         ))}
                     </Pie>
                     <Tooltip />
-                    {/* Legend có thể đổi icon */}
                     <Legend
                         verticalAlign="bottom"
                         height={50}
                         content={({ payload }) => (
-                            <div style={{ display: "flex", justifyContent: "center", gap: 20 }}>
-                            {payload?.map((entry: any, index: number) => (
-                                <div key={`item-${index}`} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                                {/* Ô chữ nhật dài */}
-                                <div
-                                    style={{
-                                    width: 20,
-                                    height: 13,
-                                    backgroundColor: entry.color,
-                                    borderRadius: 1,
-                                    }}
-                                />
-                                <span>{entry.value}</span>
-                                </div>
-                            ))}
+                            <div
+                                style={{ display: "flex", justifyContent: "center", gap: 20 }}
+                            >
+                                {payload?.map((entry: any, index: number) => (
+                                    <div
+                                        key={`item-${index}`}
+                                        style={{ display: "flex", alignItems: "center", gap: 10 }}
+                                    >
+                                        <div
+                                            style={{
+                                                width: 20,
+                                                height: 13,
+                                                backgroundColor: entry.color,
+                                                borderRadius: 1,
+                                            }}
+                                        />
+                                        <span>{entry.value}</span>
+                                    </div>
+                                ))}
                             </div>
                         )}
                     />

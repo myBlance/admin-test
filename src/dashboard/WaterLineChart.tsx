@@ -48,15 +48,13 @@ export default function WaterLineChart() {
     }, []);
 
     useEffect(() => {
-        if (!cordId) return; // chưa có id thì bỏ qua
+        if (!cordId) return; 
 
         const fetchData = async () => {
             try {
                 const res = await api.get("/api/Dashboards/GetDailyUsageByCorId", {
                     params: {
                         id: cordId,
-                        FromAt: "2025-01-01T00:00:00Z",
-                        ToAt: "2025-12-31T23:59:59Z",
                     },
                 });
 
