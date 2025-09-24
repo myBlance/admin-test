@@ -2,19 +2,77 @@ import {
     Box, 
     Card, 
     CardContent, 
-    CardHeader 
+    CardHeader, 
+    MenuItem, 
+    TextField
 } from "@mui/material";
 import { CustomAppBar } from "../appbar/CustomAppBar";
 import StatusPieChart from "./StatusPieChart";
 import WaterLineChart from "./WaterLineChart";
+import UsageAlertCard from "./UsageAlertCard";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import dayjs, { Dayjs } from "dayjs";
+import { useState } from "react";
 
-export const Dashboard = () => (
-    <Card sx={{borderRadius:"20px", mr:"-24px", height:"auto",mt:"-64px"}} >
-        <Box sx={{ padding: 2 }}>
-            <CustomAppBar />
-            
-            <CardHeader title="" />
-            
+export const Dashboard = () => {
+    const [startDate, setStartDate] = useState<Dayjs | null>(dayjs().startOf("month"));
+    const [endDate, setEndDate] = useState<Dayjs | null>(dayjs());
+    const [selectedDeviceId, setSelectedDeviceId] = useState<string>("all");
+
+    return (
+        <Card sx={{borderRadius:"20px", mr:"-24px", height:"auto",mt:"-64px"}} >
+            <Box sx={{ padding: 2 }}>
+                <CustomAppBar />
+                
+                <CardHeader
+                    title="Dashboard"
+                    action={
+                        <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                            <TextField
+                                select
+                                size="small"
+                                value={selectedDeviceId}
+                                onChange={(e) => setSelectedDeviceId(e.target.value)}
+                                sx={{ minWidth: 150 }}
+                            >
+                                <MenuItem value="all">Tất cả</MenuItem>
+                                <MenuItem value="d0000000-0000-0000-0000-000000000001">Thiết bị 1</MenuItem>
+                                <MenuItem value="d0000000-0000-0000-0000-000000000002">Thiết bị 2</MenuItem>
+                                <MenuItem value="d0000000-0000-0000-0000-000000000003">Thiết bị 3</MenuItem>
+                            </TextField>
+                            
+
+                            {/* Filter chọn khoảng thời gian */}
+                            <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                <DatePicker
+                                    label="Từ ngày"
+                                    value={startDate}
+                                    onChange={(newValue) => setStartDate(newValue)}
+                                    slotProps={{
+                                        textField: {
+                                            size: "small",
+                                            sx: { backgroundColor: "#fff", minWidth: 150 },
+                                        },
+                                    }}
+                                />
+                                <DatePicker
+                                    label="Đến ngày"
+                                    value={endDate}
+                                    onChange={(newValue) => setEndDate(newValue)}
+                                    slotProps={{
+                                        textField: {
+                                        size: "small",
+                                        sx: { backgroundColor: "#fff", minWidth: 150 },
+                                        },
+                                    }}
+                                />
+                            </LocalizationProvider>
+                        </Box>
+                    }
+                />
+
             <CardContent>
                 <Box sx={{ display: "flex", gap: 6, ml: 5 }}>
                     <Box
@@ -36,7 +94,11 @@ export const Dashboard = () => (
                                 borderBottom: "2px solid #222222",
                             }}
                         />
-                        <StatusPieChart />
+                        <StatusPieChart
+                            selectedDeviceId={selectedDeviceId} 
+                            startDate={startDate}
+                            endDate={endDate}
+                        />
                     </Box>
 
                     <Box
@@ -59,164 +121,41 @@ export const Dashboard = () => (
                                 borderBottom: "2px solid #222222",
                             }}
                         />
-                        <Box 
-                            sx={{ 
-                                margin: "20px 30px",
-                                border: "1px solid #000",
-                                borderRadius: 3,
-                            }}
-                        >
-                            <CardHeader
-                                title="Vượt ngưỡng sử dụng - TB0001"
-                                titleTypographyProps={{
-                                    fontSize: 14,
-                                    fontWeight: "600",
-                                }}
-                                action={
-                                    <Box
-                                        sx={{
-                                            marginTop: "4px",
-                                            width: "45px",
-                                            fontSize: 13,
-                                            height: "20px",
-                                            backgroundColor: "#d8edf9",
-                                            color: "#1b7bca",
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: "center",
-                                            borderRadius: 1,
-                                            cursor: "pointer",
-                                        }}
-                                    >
-                                        Chi tiết
-                                    </Box>
-                                }
-                                sx={{
-                                    padding: "8px 16px 0", 
-                                }}
-                            />
-                            <Box sx={{ fontSize: 12 }}>
-                                <p style={{margin: "5px 20px 10px 16px"}}>9:28:30 20/8/2025 - KH0001 - CTKV1</p>
-                            </Box>
-                        </Box>
-                         <Box 
-                            sx={{ 
-                                margin: "20px 30px",
-                                border: "1px solid #000",
-                                borderRadius: 3,
-                            }}
-                        >
-                            <CardHeader
+                        <div>
+                            <UsageAlertCard
                                 title="Vượt ngưỡng sử dụng"
-                                titleTypographyProps={{
-                                    fontSize: 14,
-                                    fontWeight: "600",
-                                }}
-                                action={
-                                    <Box
-                                        sx={{
-                                            marginTop: "4px",
-                                            width: "45px",
-                                            fontSize: 13,
-                                            height: "20px",
-                                            backgroundColor: "#d8edf9",
-                                            color: "#1b7bca",
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: "center",
-                                            borderRadius: 1,
-                                            cursor: "pointer",
-                                        }}
-                                    >
-                                        Chi tiết
-                                    </Box>
-                                }
-                                sx={{
-                                    padding: "8px 16px 0", 
-                                }}
+                                timestamp="9:28:30 20/8/2025"
+                                customerCode="KH0001"
+                                projectCode="CTKV1"
+                                deviceCode="TB0001"
+                                onDetailClick={() => alert("Chi tiết TB0001")}
                             />
-                            <Box sx={{ fontSize: 12 }}>
-                                <p style={{margin: "5px 20px 10px 16px"}}>9:28:30 20/8/2025 - KH0001 - CTKV1</p>
-                            </Box>
-                        </Box> <Box 
-                            sx={{ 
-                                margin: "20px 30px",
-                                border: "1px solid #000",
-                                borderRadius: 3,
-                            }}
-                        >
-                            <CardHeader
+
+                            <UsageAlertCard
                                 title="Vượt ngưỡng sử dụng"
-                                titleTypographyProps={{
-                                    fontSize: 14,
-                                    fontWeight: "600",
-                                }}
-                                action={
-                                    <Box
-                                        sx={{
-                                            marginTop: "4px",
-                                            width: "45px",
-                                            fontSize: 13,
-                                            height: "20px",
-                                            backgroundColor: "#d8edf9",
-                                            color: "#1b7bca",
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: "center",
-                                            borderRadius: 1,
-                                            cursor: "pointer",
-                                        }}
-                                    >
-                                        Chi tiết
-                                    </Box>
-                                }
-                                sx={{
-                                    padding: "8px 16px 0", 
-                                }}
+                                timestamp="10:15:00 20/8/2025"
+                                customerCode="KH0002"
+                                projectCode="CTKV2"
+                                onDetailClick={() => alert("Chi tiết KH0002")}
                             />
-                            <Box sx={{ fontSize: 12 }}>
-                                <p style={{margin: "5px 20px 10px 16px"}}>9:28:30 20/8/2025 - KH0001 - CTKV1</p>
-                            </Box>
-                        </Box> <Box 
-                            sx={{ 
-                                margin: "20px 30px",
-                                border: "1px solid #000",
-                                borderRadius: 3,
-                            }}
-                        >
-                            <CardHeader
+
+                            <UsageAlertCard
                                 title="Vượt ngưỡng sử dụng"
-                                titleTypographyProps={{
-                                    fontSize: 14,
-                                    fontWeight: "600",
-                                }}
-                                action={
-                                    <Box
-                                        sx={{
-                                            marginTop: "4px",
-                                            width: "45px",
-                                            fontSize: 13,
-                                            height: "20px",
-                                            backgroundColor: "#d8edf9",
-                                            color: "#1b7bca",
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: "center",
-                                            borderRadius: 1,
-                                            cursor: "pointer",
-                                        }}
-                                    >
-                                        Chi tiết
-                                    </Box>
-                                }
-                                sx={{
-                                    padding: "8px 16px 0", 
-                                }}
+                                timestamp="11:05:30 20/8/2025"
+                                customerCode="KH0003"
+                                projectCode="CTKV3"
+                                onDetailClick={() => alert("Chi tiết KH0003")}
                             />
-                            <Box sx={{ fontSize: 12 }}>
-                                <p style={{margin: "5px 20px 10px 16px"}}>9:28:30 20/8/2025 - KH0001 - CTKV1</p>
-                            </Box>
-                        </Box>
+                            
+                            <UsageAlertCard
+                                title="Vượt ngưỡng sử dụng"
+                                timestamp="11:05:30 20/8/2025"
+                                customerCode="KH0003"
+                                projectCode="CTKV3"
+                                onDetailClick={() => alert("Chi tiết KH0003")}
+                            />
+
+                        </div>
                         
                     </Box>
                 </Box>
@@ -247,4 +186,4 @@ export const Dashboard = () => (
             </CardContent>
         </Box>
     </Card>
-);
+)}
