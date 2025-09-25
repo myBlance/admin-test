@@ -5,7 +5,6 @@ import {
     CardHeader, 
     MenuItem, 
     TextField,
-    Typography
 } from "@mui/material";
 import { CustomAppBar } from "../appbar/CustomAppBar";
 import StatusPieChart from "./StatusPieChart";
@@ -16,8 +15,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs, { Dayjs } from "dayjs";
 import { useState } from "react";
-import DoneAllIcon from '@mui/icons-material/DoneAll';
-import WarningAmberRoundedIcon from '@mui/icons-material/WarningAmberRounded';
+import DashboardStats from "./InfoCard";
 
 export const Dashboard = () => {
     const [startDate, setStartDate] = useState<Dayjs | null>(dayjs().startOf("month"));
@@ -76,159 +74,8 @@ export const Dashboard = () => {
                 />
 
             <CardContent>
-                <Box sx={{ display: "flex", gap: 2, ml: 5 }}>
-                    <Box
-                        sx={{
-                            height: 60,
-                            width: 260,
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 1.5,
-                            px: 2,
-                            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.25)",
-                            borderRadius: 2,
-                            backgroundColor: "#fff",
-                            border: "2px solid #000",
-                        }}    
-                    >
-                        <Box
-                            sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            width: 35,
-                            height: 35,
-                            borderRadius: "50%",
-                            backgroundColor: "rgba(76, 175, 80, 0.1)", // xanh lá nhạt mờ
-                            }}
-                        >
-                            <DoneAllIcon sx={{ color: "#4caf50", fontSize: 20 }} />
-                        </Box>
-                        
-
-                        {/* Nội dung */}
-                        <Box>
-                            <Typography sx={{ fontWeight: 600, fontSize: 18 }}>210 m3</Typography>
-                            <Typography sx={{ fontSize: 12, color: "gray" }}>
-                                Tổng sử dụng
-                            </Typography>
-                        </Box>
-                    </Box>
-
-                    <Box
-                        sx={{
-                            height: 60,
-                            width: 260,
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 1.5,
-                            px: 2,
-                            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.25)",
-                            borderRadius: 2,
-                            backgroundColor: "#fff",
-                            border: "2px solid #000",
-                        }}    
-                    >
-                        <Box
-                            sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            width: 35,
-                            height: 35,
-                            borderRadius: "50%",
-                            backgroundColor: "rgba(76, 175, 80, 0.1)", // xanh lá nhạt mờ
-                            }}
-                        >
-                            <DoneAllIcon sx={{ color: "#4caf50", fontSize: 20 }} />
-                        </Box>
-                        
-
-                        {/* Nội dung */}
-                        <Box>
-                            <Typography sx={{ fontWeight: 600, fontSize: 18 }}>210</Typography>
-                            <Typography sx={{ fontSize: 12, color: "gray" }}>
-                                So với cùng kỳ tháng trước
-                            </Typography>
-                        </Box>
-                    </Box>
-
-                    <Box
-                        sx={{
-                            height: 60,
-                            width: 260,
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 1.5,
-                            px: 2,
-                            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.25)",
-                            borderRadius: 2,
-                            backgroundColor: "#fff",
-                            border: "2px solid #000",
-                        }}    
-                    >
-                        <Box
-                            sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            width: 35,
-                            height: 35,
-                            borderRadius: "50%",
-                            backgroundColor: "rgba(76, 175, 80, 0.1)", // xanh lá nhạt mờ
-                            }}
-                        >
-                            <DoneAllIcon sx={{ color: "#4caf50", fontSize: 20 }} />
-                        </Box>
-                        
-
-                        {/* Nội dung */}
-                        <Box>
-                            <Typography sx={{ fontWeight: 600, fontSize: 18 }}>210</Typography>
-                            <Typography sx={{ fontSize: 12, color: "gray" }}>
-                                Cảnh báo vượt ngưỡng
-                            </Typography>
-                        </Box>
-                    </Box>
-
-                    <Box
-                        sx={{
-                            height: 60,
-                            width: 260,
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 1.5,
-                            px: 2,
-                            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.25)",
-                            borderRadius: 2,
-                            backgroundColor: "#fff",
-                            border: "2px solid #000",
-                        }}    
-                    >
-                        <Box
-                            sx={{
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                width: 35,
-                                height: 35,
-                                borderRadius: "50%",
-                                backgroundColor: "rgba(239, 63, 113, 0.1)", // xanh lá nhạt mờ
-                            }}
-                        >
-                            <WarningAmberRoundedIcon sx={{ color: "#ea3535", fontSize: 20 }} />
-                        </Box>
-                        
-
-                        {/* Nội dung */}
-                        <Box>
-                            <Typography sx={{ fontWeight: 600, fontSize: 18 }}>210</Typography>
-                            <Typography sx={{ fontSize: 12, color: "gray" }}>
-                                Cần báo rò rỉ
-                            </Typography>
-                        </Box>
-                    </Box>
-
+                <Box>
+                   <DashboardStats/>
                 </Box>
 
                 <Box sx={{ display: "flex", gap: 6, ml: 5, mt: 5 }}>
@@ -316,7 +163,6 @@ export const Dashboard = () => {
                         
                     </Box>
                 </Box>
-
 
                 <Box 
                     sx={{ 
