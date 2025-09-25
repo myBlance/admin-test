@@ -14,15 +14,14 @@ const alias = [
 ];
 
 export default defineConfig({
-    plugins: [react()],
-    resolve: { alias },
-    server: {
-        proxy: {
-            "/api": {
-                target: "https://thongtinnguon.mobifone.vn/qlns2",
-                changeOrigin: true,
-                rewrite: (path) => path.replace(/^\/api/, ""), // Bỏ /api khỏi URL
-            },
-        },
+  server: {
+    proxy: {
+      "/api": {
+        target: "https://thongtinnguon.mobifone.vn/qlns2",
+        changeOrigin: true,
+        secure: false,
+      },
     },
+  },
+  
 });
