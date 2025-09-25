@@ -76,11 +76,11 @@ export const Dashboard = () => {
                 />
 
             <CardContent>
-                <Box sx={{ display: "flex", gap: 7, ml: 5 }}>
+                <Box sx={{ display: "flex", gap: 2, ml: 5 }}>
                     <Box
                         sx={{
                             height: 60,
-                            width: 230,
+                            width: 260,
                             display: "flex",
                             alignItems: "center",
                             gap: 1.5,
@@ -118,7 +118,7 @@ export const Dashboard = () => {
                     <Box
                         sx={{
                             height: 60,
-                            width: 230,
+                            width: 260,
                             display: "flex",
                             alignItems: "center",
                             gap: 1.5,
@@ -156,7 +156,7 @@ export const Dashboard = () => {
                     <Box
                         sx={{
                             height: 60,
-                            width: 230,
+                            width: 260,
                             display: "flex",
                             alignItems: "center",
                             gap: 1.5,
@@ -194,7 +194,7 @@ export const Dashboard = () => {
                     <Box
                         sx={{
                             height: 60,
-                            width: 230,
+                            width: 260,
                             display: "flex",
                             alignItems: "center",
                             gap: 1.5,
