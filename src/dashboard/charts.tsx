@@ -81,15 +81,15 @@ const PieChartWithDynamicCircles: React.FC = () => {
 
                     <svg width="100%" height="100%" style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none", zIndex: 10 }}>                                                                                                                            
                         {dataCircle.map((circle, index) => (
-                        <circle
-                            key={index}
-                            cx="50%"
-                            cy="50%"
-                            r={circle.value}
-                            stroke={circle.color}
-                            strokeWidth="2"
-                            fill="none"
-                        />
+                            <circle
+                                key={index}
+                                cx="50%"
+                                cy="50%"
+                                r={circle.value}
+                                stroke={circle.color}
+                                strokeWidth="2"
+                                fill="none"
+                            />
                         ))}
                     </svg>
                 </PieChart>
